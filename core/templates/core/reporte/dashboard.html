@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard de Reportes - {{ block.super }}{% endblock %}
+
+{% block page_title %}Dashboard de Reportes{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="icon-circle bg-primary text-white">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h5 class="card-title mb-0 ms-3">Reporte de Ventas</h5>
+                </div>
+                <p class="card-text">Análisis detallado de ingresos, servicios más solicitados y tendencias de ventas.</p>
+                <a href="{% url 'core:reporte_ventas' %}" class="btn btn-primary">
+                    <i class="fas fa-chart-bar me-2"></i>Ver Reporte
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="icon-circle bg-success text-white">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h5 class="card-title mb-0 ms-3">Reporte de Citas</h5>
+                </div>
+                <p class="card-text">Estadísticas de citas, ocupación y tendencias de atención médica.</p>
+                <a href="{% url 'core:reporte_citas' %}" class="btn btn-success">
+                    <i class="fas fa-calendar-alt me-2"></i>Ver Reporte
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="icon-circle bg-info text-white">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h5 class="card-title mb-0 ms-3">Estadísticas Clínicas</h5>
+                </div>
+                <p class="card-text">Resumen de tratamientos, diagnósticos más comunes y resultados médicos.</p>
+                <a href="#" class="btn btn-info">
+                    <i class="fas fa-chart-pie me-2"></i>Ver Estadísticas
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Ingresos Mensuales</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="ingresos-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Distribución de Pacientes</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="especies-chart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+</style>
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ingresosCtx = document.getElementById('ingresos-chart').getContext('2d');
+    new Chart(ingresosCtx, {
+        type: 'line',
+        data: {
+            labels: {{ meses|safe }},
+            datasets: [{
+                label: 'Ingresos ($)',
+                data: {{ ingresos_mensuales|safe }},
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+        }
+    });
+
+    const especiesCtx = document.getElementById('especies-chart').getContext('2d');
+    new Chart(especiesCtx, {
+        type: 'doughnut',
+        data: {
+            labels: {{ especies_labels|safe }},
+            datasets: [{
+                data: {{ especies_datos|safe }},
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)'
+                ]
+            }]
+        }
+    });
+</script>
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,465 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PetCare Veterinaria{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #f39c12;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --danger-color: #e74c3c;
+            --success-color: #27ae60;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar Styling */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            padding: 0;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            background: var(--dark-color);
+            transition: all 0.3s;
+        }
+        
+        .sidebar-header {
+            padding: 1.5rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        .sidebar .logo-text {
+            color: white;
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+        
+        .sidebar .logo-tagline {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            margin-top: -5px;
+        }
+        
+        .sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            margin: 5px 10px;
+            padding: 0.8rem 1rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sidebar .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .sidebar .nav-link.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sidebar .nav-link i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .sidebar-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 1rem 0;
+        }
+        
+        /* Main Content Styling */
+        .main-content {
+            margin-left: 250px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                margin-left: -250px;
+            }
+            .sidebar.show {
+                margin-left: 0;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .navbar-toggler {
+                display: block;
+            }
+        }
+        
+        /* Nav Header */
+        .content-header {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .page-title {
+            color: var(--dark-color);
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+        
+        /* Cards & Dashboard Styling */
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-card .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), #2980b9);
+            border: none;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #2980b9, var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, var(--secondary-color), #27ae60);
+            border: none;
+            box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .btn-success:hover {
+            background: linear-gradient(135deg, #27ae60, var(--secondary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(46, 204, 113, 0.4);
+        }
+        
+        /* Alerts */
+        .alert {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Top Navigation */
+        .top-navbar {
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 0.5rem 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+        }
+        
+        .user-dropdown img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        /* Badge styles */
+        .badge-custom {
+            padding: 0.5em 0.8em;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+
+        .badge-pending {
+            background-color: #ff9f43;
+            color: white;
+        }
+
+        .badge-completed {
+            background-color: #28c76f;
+            color: white;
+        }
+
+        .badge-cancelled {
+            background-color: #ea5455;
+            color: white;
+        }
+        
+        /* Pet cards in dashboard */
+        .pet-card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .pet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pet-img {
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        /* Animation for sidebar */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .sidebar .nav-item {
+            animation: fadeInLeft 0.5s forwards;
+            opacity: 0;
+        }
+        
+        .sidebar .nav-item:nth-child(1) { animation-delay: 0.1s; }
+        .sidebar .nav-item:nth-child(2) { animation-delay: 0.2s; }
+        .sidebar .nav-item:nth-child(3) { animation-delay: 0.3s; }
+        .sidebar .nav-item:nth-child(4) { animation-delay: 0.4s; }
+        .sidebar .nav-item:nth-child(5) { animation-delay: 0.5s; }
+        .sidebar .nav-item:nth-child(6) { animation-delay: 0.6s; }
+        .sidebar .nav-item:nth-child(7) { animation-delay: 0.7s; }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="sidebar-header">
+                    <img src="{% static 'img/logo2.png' %}" alt="Logo" class="img-fluid" style="max-width: 100px;">
+                    <div class="logo-text">Veterinaria </div>
+                    <div class="logo-tagline">Cuidado profesional para mascotas</div>
+                </div>
+                
+                <div class="position-sticky">
+                    <div class="sidebar-divider"></div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}" 
+                               href="{% url 'core:dashboard' %}">
+                                <i class="fas fa-home"></i> Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'mascota' in request.resolver_match.url_name %}active{% endif %}" 
+                               href="{% url 'core:mascota_list' %}">
+                                <i class="fas fa-paw"></i> Mascotas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'propietario' in request.resolver_match.url_name %}active{% endif %}" 
+                               href="{% url 'core:propietario_list' %}">
+                                <i class="fas fa-user"></i> Propietarios
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'historial' in request.resolver_match.url_name %}active{% endif %}" 
+                               href="{% url 'core:historial_list' %}">
+                                <i class="fas fa-notes-medical"></i> Historial Clínico
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'cita' in request.resolver_match.url_name %}active{% endif %}" 
+                               href="{% url 'core:cita_list' %}">
+                                <i class="fas fa-calendar-check"></i> Citas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'factura' in request.resolver_match.url_name %}active{% endif %}" 
+                               href="{% url 'core:factura_list' %}">
+                                <i class="fas fa-file-invoice-dollar"></i> Facturación
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'reporte' in request.resolver_match.url_name %}active{% endif %}" 
+                               href="{% url 'core:reporte_dashboard' %}">
+                                <i class="fas fa-chart-line"></i> Reportes
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="sidebar-divider"></div>
+                    
+                    <div class="px-3 mt-4 mb-2">
+                        <div class="text-muted small text-uppercase">Acceso rápido</div>
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'core:cita_create' %}">
+                                <i class="fas fa-plus-circle"></i> Nueva Cita
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'core:mascota_create' %}">
+                                <i class="fas fa-plus-circle"></i> Nueva Mascota
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+                <!-- Top Navigation -->
+                <nav class="navbar top-navbar navbar-expand-lg navbar-light bg-white">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        
+                        <div class="d-flex align-items-center">
+                            <div class="dropdown">
+                                <a class="dropdown-toggle user-dropdown d-flex align-items-center text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{% static 'img/logo3.png' %}" alt="Logo" class="img-fluid" style="max-width: 100px;">
+                                    <div>
+                                        <div class="fw-bold text-dark">Dr. Nombre</div>
+                                        <div class="small text-muted">Veterinario</div>
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-user-circle me-2"></i> Mi Perfil</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> Configuración</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                
+                <!-- Content Header -->
+                <div class="content-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1 class="page-title">{% block page_title %}{% endblock %}</h1>
+                        <div class="btn-toolbar">
+                            {% block page_actions %}{% endblock %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alert Messages -->
+                {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {% if message.tags == 'success' %}
+                            <i class="fas fa-check-circle me-2"></i>
+                        {% elif message.tags == 'warning' %}
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                        {% elif message.tags == 'error' %}
+                            <i class="fas fa-times-circle me-2"></i>
+                        {% elif message.tags == 'info' %}
+                            <i class="fas fa-info-circle me-2"></i>
+                        {% endif %}
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <!-- Main Content Block -->
+                <div class="content-body">
+                    {% block content %}{% endblock %}
+                </div>
+                
+                <!-- Footer -->
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <span>© {% now "Y" %} PetCare Veterinaria. Todos los derechos reservados.</span>
+                    </div>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle sidebar on mobile
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidebarToggle = document.querySelector('.navbar-toggler');
+            const sidebar = document.getElementById('sidebar');
+            
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function () {
+                    sidebar.classList.toggle('show');
+                });
+            }
+            
+            // Close sidebar when clicking outside on mobile
+            document.addEventListener('click', function (event) {
+                const isClickInsideSidebar = sidebar.contains(event.target);
+                const isClickOnToggle = sidebarToggle.contains(event.target);
+                
+                if (!isClickInsideSidebar && !isClickOnToggle && sidebar.classList.contains('show')) {
+                    sidebar.classList.remove('show');
+                }
+            });
+        });
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Historial Clínico - {{ block.super }}{% endblock %}
+
+{% block page_title %}Historial Clínico{% endblock %}
+
+{% block page_actions %}
+    <a href="{% url 'core:historial_create' %}" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Nuevo Registro
+    </a>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Mascota</th>
+                        <th>Motivo</th>
+                        <th>Diagnóstico</th>
+                        <th>Tratamiento</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for historial in historiales %}
+                    <tr>
+                        <td>{{ historial.fecha|date:"d/m/Y H:i" }}</td>
+                        <td>{{ historial.mascota.nombre }}</td>
+                        <td>{{ historial.motivo_consulta }}</td>
+                        <td>{{ historial.diagnostico|truncatewords:10 }}</td>
+                        <td>{{ historial.tratamiento|truncatewords:10 }}</td>
+                        <td>
+                            <a href="{% url 'core:historial_edit' historial.pk %}" class="btn btn-sm btn-info">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="{% url 'core:historial_delete' historial.pk %}" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center">No hay registros clínicos.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

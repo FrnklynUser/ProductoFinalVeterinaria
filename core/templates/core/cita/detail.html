@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle de Cita - {{ block.super }}{% endblock %}
+
+{% block page_title %}Cita #{{ cita.id }}{% endblock %}
+
+{% block page_actions %}
+    {% if cita.estado == 'PENDIENTE' %}
+    <a href="{% url 'core:cita_edit' cita.pk %}" class="btn btn-warning me-2">
+        <i class="fas fa-edit me-1"></i>Editar
+    </a>
+    <a href="{% url 'core:cita_delete' cita.pk %}" class="btn btn-danger">
+        <i class="fas fa-trash me-1"></i>Cancelar Cita
+    </a>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Información de la Cita</h5>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h6 class="text-muted">Fecha y Hora</h6>
+                        <p class="mb-0">{{ cita.fecha_hora|date:"d/m/Y H:i" }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-muted">Estado</h6>
+                        <span class="badge {% if cita.estado == 'PENDIENTE' %}bg-warning
+                                   {% elif cita.estado == 'CONFIRMADA' %}bg-success
+                                   {% elif cita.estado == 'COMPLETADA' %}bg-info
+                                   {% else %}bg-secondary{% endif %}">
+                            {{ cita.get_estado_display }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h6 class="text-muted">Motivo de la Cita</h6>
+                        <p class="mb-0">{{ cita.motivo }}</p>
+                    </div>
+                </div>
+
+                {% if cita.notas %}
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h6 class="text-muted">Notas Adicionales</h6>
+                        <p class="mb-0">{{ cita.notas }}</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Información de la Mascota</h5>
+            </div>
+            <div class="card-body">
+                <h6>{{ cita.mascota.nombre }}</h6>
+                <p class="text-muted mb-1">{{ cita.mascota.get_especie_display }} - {{ cita.mascota.raza }}</p>
+                <p class="text-muted mb-3">{{ cita.mascota.fecha_nacimiento|date:"d/m/Y" }}</p>
+                
+                <h6 class="text-muted">Propietario</h6>
+                <p class="mb-1">{{ cita.mascota.propietario.usuario.get_full_name }}</p>
+                <p class="mb-1"><i class="fas fa-phone me-2"></i>{{ cita.mascota.propietario.telefono }}</p>
+                <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>{{ cita.mascota.propietario.direccion }}</p>
+            </div>
+        </div>
+
+        {% if historial_reciente %}
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Último Historial Clínico</h5>
+            </div>
+            <div class="card-body">
+                <p class="text-muted mb-1">{{ historial_reciente.fecha|date:"d/m/Y" }}</p>
+                <p class="mb-2"><strong>Motivo:</strong> {{ historial_reciente.motivo_consulta }}</p>
+                <p class="mb-2"><strong>Diagnóstico:</strong> {{ historial_reciente.diagnostico|truncatewords:30 }}</p>
+                <a href="{% url 'core:historial_detail' historial_reciente.pk %}" class="btn btn-sm btn-primary">
+                    Ver Historial Completo
+                </a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

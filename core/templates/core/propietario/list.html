@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Propietarios - {{ block.super }}{% endblock %}
+
+{% block page_title %}Propietarios{% endblock %}
+
+{% block page_actions %}
+    <a href="{% url 'core:propietario_create' %}" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Nuevo Propietario
+    </a>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Teléfono</th>
+                        <th>Mascotas</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for propietario in propietarios %}
+                    <tr>
+                        <td>{{ propietario.usuario.get_full_name }}</td>
+                        <td>{{ propietario.direccion }}</td>
+                        <td>{{ propietario.telefono }}</td>
+                        <td>{{ propietario.mascotas.count }}</td>
+                        <td>
+                            <a href="{% url 'core:propietario_edit' propietario.pk %}" class="btn btn-sm btn-info">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="{% url 'core:propietario_delete' propietario.pk %}" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="text-center">No hay propietarios registrados.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

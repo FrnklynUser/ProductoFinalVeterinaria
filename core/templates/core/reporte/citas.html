@@ -1,0 +1,186 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Reporte de Citas - {{ block.super }}{% endblock %}
+
+{% block page_title %}Reporte de Citas{% endblock %}
+
+{% block page_actions %}
+    <div class="btn-group">
+        <button class="btn btn-outline-primary">
+            <i class="fas fa-download me-2"></i>Exportar PDF
+        </button>
+        <button class="btn btn-outline-success">
+            <i class="fas fa-file-excel me-2"></i>Exportar Excel
+        </button>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Tarjetas de resumen -->
+    <div class="col-md-3 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="text-muted text-uppercase">Total Citas</h6>
+                <h3 class="mb-0">{{ total_citas }}</h3>
+                <div class="mt-2">
+                    <span class="text-success">
+                        <i class="fas fa-arrow-up me-1"></i>12%
+                    </span>
+                    <span class="text-muted">vs mes anterior</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="text-muted text-uppercase">Citas Pendientes</h6>
+                <h3 class="mb-0">{{ citas_pendientes }}</h3>
+                <div class="mt-2">
+                    <span class="text-muted">Para los próximos 7 días</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="text-muted text-uppercase">Tasa de Asistencia</h6>
+                <h3 class="mb-0">{{ tasa_asistencia }}%</h3>
+                <div class="mt-2">
+                    <span class="text-success">
+                        <i class="fas fa-arrow-up me-1"></i>3.2%
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="text-muted text-uppercase">Citas por Día</h6>
+                <h3 class="mb-0">{{ promedio_citas_dia }}</h3>
+                <div class="mt-2">
+                    <span class="text-muted">Promedio último mes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gráficos -->
+    <div class="col-lg-8 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Distribución Semanal de Citas</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="citas-semana-chart" height="300"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Estado de Citas</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="estado-citas-chart" height="300"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabla de citas recientes -->
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Próximas Citas</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Fecha y Hora</th>
+                                <th>Mascota</th>
+                                <th>Propietario</th>
+                                <th>Motivo</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cita in proximas_citas %}
+                            <tr>
+                                <td>{{ cita.fecha_hora|date:"d/m/Y H:i" }}</td>
+                                <td>{{ cita.mascota.nombre }}</td>
+                                <td>{{ cita.mascota.propietario }}</td>
+                                <td>{{ cita.motivo }}</td>
+                                <td>
+                                    <span class="badge {% if cita.estado == 'PENDIENTE' %}bg-warning
+                                               {% elif cita.estado == 'CONFIRMADA' %}bg-success
+                                               {% elif cita.estado == 'COMPLETADA' %}bg-info
+                                               {% else %}bg-secondary{% endif %}">
+                                        {{ cita.get_estado_display }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Gráfico de citas por semana
+    const citasSemanaCtx = document.getElementById('citas-semana-chart').getContext('2d');
+    new Chart(citasSemanaCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
+            datasets: [{
+                label: 'Número de Citas',
+                data: {{ citas_por_dia|safe }},
+                backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                borderColor: 'rgb(75, 192, 192)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Gráfico de estado de citas
+    const estadoCitasCtx = document.getElementById('estado-citas-chart').getContext('2d');
+    new Chart(estadoCitasCtx, {
+        type: 'doughnut',
+        data: {
+            labels: {{ estados_labels|safe }},
+            datasets: [{
+                data: {{ estados_datos|safe }},
+                backgroundColor: [
+                    'rgb(255, 193, 7)',
+                    'rgb(40, 167, 69)',
+                    'rgb(23, 162, 184)',
+                    'rgb(108, 117, 125)'
+                ]
+            }]
+        }
+    });
+</script>
+{% endblock %}
+{% endblock %}

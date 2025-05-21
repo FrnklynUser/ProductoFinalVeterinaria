@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block title %}Actualizar Cita - {{ block.super }}{% endblock %}
+
+{% block page_title %}Actualizar Cita #{{ cita.id }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Actualizar Información de la Cita</h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.mascota.id_for_label }}" class="form-label">Mascota</label>
+                            {{ form.mascota }}
+                            {% if form.mascota.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ form.mascota.errors.0 }}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.fecha_hora.id_for_label }}" class="form-label">Fecha y Hora</label>
+                            {{ form.fecha_hora }}
+                            {% if form.fecha_hora.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ form.fecha_hora.errors.0 }}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <label for="{{ form.motivo.id_for_label }}" class="form-label">Motivo de la Cita</label>
+                            {{ form.motivo }}
+                            {% if form.motivo.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ form.motivo.errors.0 }}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.estado.id_for_label }}" class="form-label">Estado</label>
+                            {{ form.estado }}
+                            {% if form.estado.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ form.estado.errors.0 }}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <label for="{{ form.notas.id_for_label }}" class="form-label">Notas Adicionales</label>
+                            {{ form.notas }}
+                            {% if form.notas.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ form.notas.errors.0 }}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end mt-3">
+                        <a href="{% url 'core:cita_detail' cita.pk %}" class="btn btn-secondary me-2">
+                            <i class="fas fa-times me-1"></i>Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-1"></i>Guardar Cambios
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Información Actual</h5>
+            </div>
+            <div class="card-body">
+                <h6 class="text-muted">Estado Actual</h6>
+                <p class="mb-3">
+                    <span class="badge {% if cita.estado == 'PENDIENTE' %}bg-warning
+                               {% elif cita.estado == 'CONFIRMADA' %}bg-success
+                               {% elif cita.estado == 'COMPLETADA' %}bg-info
+                               {% else %}bg-secondary{% endif %}">
+                        {{ cita.get_estado_display }}
+                    </span>
+                </p>
+
+                <h6 class="text-muted">Mascota</h6>
+                <p class="mb-1">{{ cita.mascota.nombre }}</p>
+                <p class="text-muted mb-3">{{ cita.mascota.get_especie_display }} - {{ cita.mascota.raza }}</p>
+
+                <h6 class="text-muted">Propietario</h6>
+                <p class="mb-1">{{ cita.mascota.propietario.usuario.get_full_name }}</p>
+                <p class="mb-0"><i class="fas fa-phone me-2"></i>{{ cita.mascota.propietario.telefono }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Inicializar flatpickr para el campo de fecha y hora
+        flatpickr("#{{ form.fecha_hora.id_for_label }}", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+            locale: "es",
+            minDate: "today",
+            time_24hr: true,
+            defaultDate: "{{ cita.fecha_hora|date:'Y-m-d H:i' }}"
+        });
+
+        // Aplicar clases de Bootstrap a los campos
+        const formFields = document.querySelectorAll('input, select, textarea');
+        formFields.forEach(field => {
+            if (field.type !== 'datetime-local') {
+                field.classList.add('form-control');
+            }
+            if (field.tagName === 'SELECT') {
+                field.classList.add('form-select');
+            }
+        });
+    });
+</script>
+{% endblock %}

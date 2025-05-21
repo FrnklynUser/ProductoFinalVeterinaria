@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Mascotas - {{ block.super }}{% endblock %}
+
+{% block page_title %}Mascotas{% endblock %}
+
+{% block page_actions %}
+    <a href="{% url 'core:mascota_create' %}" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Nueva Mascota
+    </a>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Especie</th>
+                        <th>Raza</th>
+                        <th>Propietario</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mascota in mascotas %}
+                    <tr>
+                        <td>{{ mascota.nombre }}</td>
+                        <td>{{ mascota.get_especie_display }}</td>
+                        <td>{{ mascota.raza }}</td>
+                        <td>{{ mascota.propietario }}</td>
+                        <td>
+                            <a href="{% url 'core:mascota_edit' mascota.pk %}" class="btn btn-sm btn-info">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="{% url 'core:mascota_delete' mascota.pk %}" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="text-center">No hay mascotas registradas.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

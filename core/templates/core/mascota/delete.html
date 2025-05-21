@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ page_title }} - {{ block.super }}{% endblock %}
+
+{% block page_title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <p>¿Está seguro que desea eliminar la mascota "{{ mascota.nombre }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="d-flex justify-content-end">
+                <a href="{% url 'core:mascota_list' %}" class="btn btn-secondary me-2">Cancelar</a>
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

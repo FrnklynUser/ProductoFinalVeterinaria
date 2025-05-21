@@ -1,0 +1,364 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard - PetCare Veterinaria{% endblock %}
+
+{% block page_title %}Panel de Control{% endblock %}
+
+{% block page_actions %}
+<button class="btn btn-primary">
+    <i class="fas fa-sync-alt me-2"></i>Actualizar datos
+</button>
+{% endblock %}
+
+{% block content %}
+<!-- Resumen de estadísticas -->
+<div class="row">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="stat-card">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <div class="icon bg-primary">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <h6 class="text-sm text-uppercase text-muted fw-normal mt-3">Total Mascotas</h6>
+                    <h3 class="mb-0 fw-bold">{{ mascotas_count|default:"0" }}</h3>
+                    <div class="mt-2">
+                        <span class="text-success">
+                            <i class="fas fa-arrow-up me-1"></i>8%
+                        </span>
+                        <span class="text-sm text-muted">vs mes anterior</span>
+                    </div>
+                </div>
+                <div class="align-self-end">
+                    <a href="{% url 'core:mascota_list' %}" class="btn btn-sm btn-light">Ver todas</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="stat-card">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <div class="icon" style="background: linear-gradient(135deg, #2ecc71, #27ae60);">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h6 class="text-sm text-uppercase text-muted fw-normal mt-3">Citas Hoy</h6>
+                    <h3 class="mb-0 fw-bold">{{ citas_hoy|default:"0" }}</h3>
+                    <div class="mt-2">
+                        <span class="text-success">
+                            <i class="fas fa-check-circle me-1"></i>
+                        </span>
+                        <span class="text-sm text-muted">{{ citas_pendientes|default:"0" }} pendientes</span>
+                    </div>
+                </div>
+                <div class="align-self-end">
+                    <a href="{% url 'core:cita_list' %}" class="btn btn-sm btn-light">Ver todas</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="stat-card">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <div class="icon" style="background: linear-gradient(135deg, #f39c12, #e67e22);">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h6 class="text-sm text-uppercase text-muted fw-normal mt-3">Ingresos Hoy</h6>
+                    <h3 class="mb-0 fw-bold">${{ ingresos_hoy|default:"0"|floatformat:2 }}</h3>
+                    <div class="mt-2">
+                        <span class="text-success">
+                            <i class="fas fa-arrow-up me-1"></i>12%
+                        </span>
+                        <span class="text-sm text-muted">vs ayer</span>
+                    </div>
+                </div>
+                <div class="align-self-end">
+                    <a href="{% url 'core:factura_list' %}" class="btn btn-sm btn-light">Ver facturas</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="stat-card">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <div class="icon" style="background: linear-gradient(135deg, #3498db, #2980b9);">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h6 class="text-sm text-uppercase text-muted fw-normal mt-3">Propietarios</h6>
+                    <h3 class="mb-0 fw-bold">{{ propietarios_count|default:"0" }}</h3>
+                    <div class="mt-2">
+                        <span class="text-success">
+                            <i class="fas fa-arrow-up me-1"></i>5%
+                        </span>
+                        <span class="text-sm text-muted">vs mes anterior</span>
+                    </div>
+                </div>
+                <div class="align-self-end">
+                    <a href="{% url 'core:propietario_list' %}" class="btn btn-sm btn-light">Ver todos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Próximas citas y actividad reciente -->
+<div class="row">
+    <div class="col-lg-8 mb-4">
+        <div class="stat-card">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h5 class="mb-0 fw-bold">Próximas Citas</h5>
+                    <p class="text-muted mb-0">Agenda para hoy</p>
+                </div>
+                <div>
+                    <a href="{% url 'core:cita_create' %}" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Nueva Cita
+                    </a>
+                </div>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Hora</th>
+                            <th>Mascota</th>
+                            <th>Propietario</th>
+                            <th>Motivo</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cita in proximas_citas %}
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <span class="bg-light rounded-circle p-2 me-2">
+                                        <i class="fas fa-clock text-primary"></i>
+                                    </span>
+                                    <span class="fw-medium">{{ cita.fecha_hora|date:"H:i" }}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                <img src="{% static 'img/perro.png' %}" class="rounded-circle me-2" alt="Mascota" style="width: 40px; height: 40px;">
+                                    <div>
+                                        <span class="fw-medium">{{ cita.mascota.nombre }}</span>
+                                        <div class="text-muted small">{{ cita.mascota.especie }}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{ cita.mascota.propietario }}</td>
+                            <td>{{ cita.motivo }}</td>
+                            <td>
+                                <span class="badge badge-custom {% if cita.estado == 'PENDIENTE' %}badge-pending{% elif cita.estado == 'CONFIRMADA' %}badge-completed{% else %}badge-cancelled{% endif %}">
+                                    {{ cita.get_estado_display }}
+                                </span>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-light" type="button" data-bs-toggle="dropdown">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'core:cita_detail' cita.id %}"><i class="fas fa-eye me-2"></i>Ver detalles</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'core:cita_edit' cita.id %}"><i class="fas fa-edit me-2"></i>Editar</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item text-danger" href="{% url 'core:cita_delete' cita.id %}"><i class="fas fa-trash me-2"></i>Cancelar</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="6" class="text-center py-4">
+                                <img src="{% static 'img/empty-calendar.svg' %}" alt="No hay citas" style="width: 120px; opacity: 0.5;" class="mb-3">
+                                <p class="text-muted mb-0">No hay citas programadas para hoy</p>
+                                <a href="{% url 'core:cita_create' %}" class="btn btn-sm btn-primary mt-3">Programar nueva cita</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="{% url 'core:cita_list' %}" class="btn btn-outline-primary">Ver todas las citas</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+        <div class="stat-card">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h5 class="mb-0 fw-bold">Actividad Reciente</h5>
+                    <p class="text-muted mb-0">Últimas actualizaciones</p>
+                </div>
+                <div>
+                    <button class="btn btn-sm btn-light">
+                        <i class="fas fa-filter"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                {% for actividad in actividades_recientes %}
+                <div class="timeline-item mb-4">
+                    <div class="timeline-item-icon bg-light rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                        <i class="fas {{ actividad.icono }} {% if 'paw' in actividad.icono %}text-primary{% elif 'calendar' in actividad.icono %}text-success{% elif 'dollar' in actividad.icono %}text-warning{% else %}text-info{% endif %}"></i>
+                    </div>
+                    <div class="timeline-item-content ms-3">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="mb-1 fw-medium">{{ actividad.descripcion }}</h6>
+                            <span class="text-muted small">{{ actividad.fecha|date:"H:i" }}</span>
+                        </div>
+                        <p class="text-muted small mb-0">{{ actividad.fecha|date:"d/m/Y" }}</p>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="text-center py-4">
+                    <img src="{% static 'img/empty-activity.svg' %}" alt="No hay actividad" style="width: 120px; opacity: 0.5;" class="mb-3">
+                    <p class="text-muted mb-0">No hay actividades recientes</p>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="text-center mt-4">
+                <button class="btn btn-outline-primary">Cargar más</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mascotas recientes y estadísticas de salud -->
+<div class="row">
+    <div class="col-lg-8 mb-4">
+        <div class="stat-card">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h5 class="mb-0 fw-bold">Mascotas Recientes</h5>
+                    <p class="text-muted mb-0">Últimos registros</p>
+                </div>
+                <div>
+                    <a href="{% url 'core:mascota_create' %}" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Nueva Mascota
+                    </a>
+                </div>
+            </div>
+            
+            <div class="row">
+                {% for mascota in mascotas_recientes|default:'' %}
+                <div class="col-md-4 mb-4">
+                    <div class="card pet-card h-100 border-0 shadow-sm">
+                        <img src="/api/placeholder/400/250" class="card-img-top pet-img" alt="{{ mascota.nombre }}">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">{{ mascota.nombre }}</h5>
+                                <span class="badge {% if mascota.estado == 'ACTIVO' %}bg-success{% else %}bg-secondary{% endif %}">
+                                    {{ mascota.get_estado_display }}
+                                </span>
+                            </div>
+                            <p class="card-text text-muted mb-2">{{ mascota.especie }} - {{ mascota.raza }}</p>
+                            <p class="card-text small">
+                                <i class="fas fa-user me-1 text-muted"></i> {{ mascota.propietario }}
+                            </p>
+                            <div class="d-grid gap-2 mt-3">
+                                <a href="{% url 'core:mascota_detail' mascota.id %}" class="btn btn-sm btn-outline-primary">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12 text-center py-4">
+                    <img src="{% static 'img/empty-pet.svg' %}" alt="No hay mascotas" style="width: 120px; opacity: 0.5;" class="mb-3">
+                    <p class="text-muted mb-0">No hay mascotas registradas recientemente</p>
+                    <a href="{% url 'core:mascota_create' %}" class="btn btn-sm btn-primary mt-3">Registrar nueva mascota</a>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="text-center mt-2">
+                <a href="{% url 'core:mascota_list' %}" class="btn btn-outline-primary">Ver todas las mascotas</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+        <div class="stat-card">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h5 class="mb-0 fw-bold">Indicadores de Salud</h5>
+                    <p class="text-muted mb-0">Resumen clínico</p>
+                </div>
+                <div>
+                    <button class="btn btn-sm btn-light">
+                        <i class="fas fa-filter"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="mb-0">Vacunaciones</h6>
+                    <span class="badge bg-success">{{ vacunaciones_recientes|default:"0" }}</span>
+                </div>
+                <div class="progress" style="height: 10px;">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 75%"></div>
+                </div>
+            </div>
+            
+            <div class="mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="mb-0">Tratamientos</h6>
+                    <span class="badge bg-primary">{{ tratamientos_activos|default:"0" }}</span>
+                </div>
+                <div class="progress" style="height: 10px;">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 45%"></div>
+                </div>
+            </div>
+            
+            <div class="mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="mb-0">Cirugías</h6>
+                    <span class="badge bg-warning">{{ cirugias_recientes|default:"0" }}</span>
+                </div>
+                <div class="progress" style="height: 10px;">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 30%"></div>
+                </div>
+            </div>
+            
+            <div class="mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="mb-0">Emergencias</h6>
+                    <span class="badge bg-danger">{{ emergencias_recientes|default:"0" }}</span>
+                </div>
+                <div class="progress" style="height: 10px;">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 15%"></div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="{% url 'core:reporte_dashboard' %}" class="btn btn-outline-primary">Ver reportes detallados</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Código JavaScript adicional para el dashboard
+    document.addEventListener('DOMContentLoaded', function() {
+        // Aquí puedes agregar código para gráficos u otras funcionalidades interactivas
+        console.log('Dashboard cargado correctamente');
+    });
+</script>
+{% endblock %}

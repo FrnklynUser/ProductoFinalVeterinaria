@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+
+{% block title %}Reporte de Ventas - {{ block.super }}{% endblock %}
+
+{% block page_title %}Reporte de Ventas{% endblock %}
+
+{% block page_actions %}
+    <div class="btn-group">
+        <button class="btn btn-outline-primary">
+            <i class="fas fa-download me-2"></i>Exportar PDF
+        </button>
+        <button class="btn btn-outline-success">
+            <i class="fas fa-file-excel me-2"></i>Exportar Excel
+        </button>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Tarjetas de resumen -->
+    <div class="col-md-3 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="text-muted text-uppercase">Ventas Totales</h6>
+                <h3 class="mb-0">${{ total_ventas|floatformat:2 }}</h3>
+                <div class="mt-2">
+                    <span class="text-success">
+                        <i class="fas fa-arrow-up me-1"></i>8.3%
+                    </span>
+                    <span class="text-muted">vs mes anterior</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="text-muted text-uppercase">Facturas Emitidas</h6>
+                <h3 class="mb-0">{{ total_facturas }}</h3>
+                <div class="mt-2">
+                    <span class="text-muted">{{ facturas_pendientes }} pendientes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="text-muted text-uppercase">Ticket Promedio</h6>
+                <h3 class="mb-0">${{ ticket_promedio|floatformat:2 }}</h3>
+                <div class="mt-2">
+                    <span class="text-success">
+                        <i class="fas fa-arrow-up me-1"></i>5.2%
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="text-muted text-uppercase">Servicios Vendidos</h6>
+                <h3 class="mb-0">{{ total_servicios }}</h3>
+                <div class="mt-2">
+                    <span class="text-muted">Top 5 servicios: {{ porcentaje_top5 }}%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gráficos -->
+    <div class="col-lg-8 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Tendencia de Ventas</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="ventas-chart" height="300"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Servicios más Vendidos</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="servicios-chart" height="300"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabla de ventas recientes -->
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Últimas Ventas</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Factura #</th>
+                                <th>Fecha</th>
+                                <th>Cliente</th>
+                                <th>Servicios</th>
+                                <th>Total</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for factura in ultimas_ventas %}
+                            <tr>
+                                <td>{{ factura.numero }}</td>
+                                <td>{{ factura.fecha|date:"d/m/Y" }}</td>
+                                <td>{{ factura.propietario }}</td>
+                                <td>{{ factura.detalles.count }}</td>
+                                <td>${{ factura.total|floatformat:2 }}</td>
+                                <td>
+                                    <span class="badge {% if factura.estado == 'PAGADA' %}bg-success{% elif factura.estado == 'PENDIENTE' %}bg-warning{% else %}bg-danger{% endif %}">
+                                        {{ factura.get_estado_display }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Gráfico de ventas
+    const ventasCtx = document.getElementById('ventas-chart').getContext('2d');
+    new Chart(ventasCtx, {
+        type: 'line',
+        data: {
+            labels: {{ fechas_ventas|safe }},
+            datasets: [{
+                label: 'Ventas Diarias',
+                data: {{ datos_ventas|safe }},
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+        }
+    });
+
+    // Gráfico de servicios
+    const serviciosCtx = document.getElementById('servicios-chart').getContext('2d');
+    new Chart(serviciosCtx, {
+        type: 'pie',
+        data: {
+            labels: {{ servicios_labels|safe }},
+            datasets: [{
+                data: {{ servicios_datos|safe }},
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(153, 102, 255)'
+                ]
+            }]
+        }
+    });
+</script>
+{% endblock %}
+{% endblock %}
