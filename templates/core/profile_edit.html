@@ -1,0 +1,121 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-primary text-white d-flex align-items-center">
+                    <h4 class="mb-0">
+                        <i class="fas fa-user-edit me-2"></i>Editar Perfil
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                            Por favor, corrija los errores indicados.
+                        </div>
+                        {% endif %}
+
+                        <div class="row mb-4">
+                            <div class="col-md-4 text-center">
+                                <div class="avatar-circle mb-3">
+                                    {% if user.profile.avatar %}
+                                        <img src="{{ user.profile.avatar.url }}" alt="Avatar" class="rounded-circle" style="width: 120px; height: 120px; object-fit: cover;">
+                                    {% else %}
+                                        <i class="fas fa-user-circle fa-5x text-primary"></i>
+                                    {% endif %}
+                                </div>
+                                <div class="mb-3">
+                                    <label for="avatar" class="form-label">Cambiar avatar</label>
+                                    <input type="file" class="form-control form-control-sm" id="avatar" name="avatar">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">Nombre de usuario</label>
+                                    <input type="text" class="form-control {% if form.username.errors %}is-invalid{% endif %}" 
+                                           id="username" name="username" value="{{ form.username.value|default:user.username }}">
+                                    {% if form.username.errors %}
+                                    <div class="invalid-feedback">{{ form.username.errors|join:", " }}</div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="first_name" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control {% if form.first_name.errors %}is-invalid{% endif %}" 
+                                           id="first_name" name="first_name" value="{{ form.first_name.value|default:user.first_name }}">
+                                    {% if form.first_name.errors %}
+                                    <div class="invalid-feedback">{{ form.first_name.errors|join:", " }}</div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="last_name" class="form-label">Apellidos</label>
+                                    <input type="text" class="form-control {% if form.last_name.errors %}is-invalid{% endif %}" 
+                                           id="last_name" name="last_name" value="{{ form.last_name.value|default:user.last_name }}">
+                                    {% if form.last_name.errors %}
+                                    <div class="invalid-feedback">{{ form.last_name.errors|join:", " }}</div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Correo electrónico</label>
+                                    <input type="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" 
+                                           id="email" name="email" value="{{ form.email.value|default:user.email }}">
+                                    {% if form.email.errors %}
+                                    <div class="invalid-feedback">{{ form.email.errors|join:", " }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-top pt-3">
+                            <h5 class="mb-3">Cambiar contraseña</h5>
+                            <div class="mb-3">
+                                <label for="current_password" class="form-label">Contraseña actual</label>
+                                <input type="password" class="form-control {% if form.current_password.errors %}is-invalid{% endif %}" 
+                                       id="current_password" name="current_password">
+                                {% if form.current_password.errors %}
+                                <div class="invalid-feedback">{{ form.current_password.errors|join:", " }}</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="new_password" class="form-label">Nueva contraseña</label>
+                                <input type="password" class="form-control {% if form.new_password.errors %}is-invalid{% endif %}" 
+                                       id="new_password" name="new_password">
+                                {% if form.new_password.errors %}
+                                <div class="invalid-feedback">{{ form.new_password.errors|join:", " }}</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="confirm_password" class="form-label">Confirmar nueva contraseña</label>
+                                <input type="password" class="form-control {% if form.confirm_password.errors %}is-invalid{% endif %}" 
+                                       id="confirm_password" name="confirm_password">
+                                {% if form.confirm_password.errors %}
+                                <div class="invalid-feedback">{{ form.confirm_password.errors|join:", " }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="text-end mt-4">
+                            <a href="{% url 'core:profile' %}" class="btn btn-secondary me-2">
+                                <i class="fas fa-times me-2"></i>Cancelar
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i>Guardar cambios
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

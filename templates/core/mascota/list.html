@@ -1,0 +1,341 @@
+{% extends "core/base.html" %}
+
+{% block title %}Mascotas - {{ block.super }}{% endblock %}
+
+{% block page_title %}
+    <i class="fas fa-paw text-primary"></i> Mascotas
+{% endblock %}
+
+{% block page_actions %}
+    <a href="{% url 'core:mascota_create' %}" class="btn btn-primary btn-rounded shadow-sm">
+        <i class="fas fa-plus"></i> Nueva Mascota
+    </a>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-2">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-white text-dark border-bottom">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h5 class="mb-0 text-dark">
+                                <i class="fas fa-list-ul me-2"></i>
+                                Lista de Mascotas
+                            </h5>
+                        </div>
+                        <div class="col-auto">
+                            <span class="badge bg-primary text-white fs-6">
+                                Total: {{ mascotas.paginator.count|default:0 }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-body p-4">
+                <div class="row mb-2">
+                    <div class="col-md-4 col-lg-3">
+                        <form method="get" class="search-form">
+                            <div class="input-group input-group-sm shadow-sm">
+                                <span class="input-group-text bg-light border-end-0">
+                                    <i class="fas fa-search text-muted"></i>
+                                </span>
+                                <input type="text" 
+                                    name="q" 
+                                    class="form-control border-start-0 ps-1" 
+                                    placeholder="Buscar..." 
+                                    value="{{ request.GET.q }}">
+                                <button class="btn btn-outline-primary" type="submit">
+                                    Buscar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                   
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th class="border-0">
+                                        <i class="fas fa-tag me-1"></i>
+                                        Nombre
+                                    </th>
+                                    <th class="border-0">
+                                        <i class="fas fa-dna me-1"></i>
+                                        Especie
+                                    </th>
+                                    <th class="border-0">
+                                        <i class="fas fa-certificate me-1"></i>
+                                        Raza
+                                    </th>
+                                    <th class="border-0">
+                                        <i class="fas fa-user me-1"></i>
+                                        Propietario
+                                    </th>
+                                    <th class="border-0 text-center">
+                                        <i class="fas fa-cogs me-1"></i>
+                                        Acciones
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for mascota in mascotas %}
+                                <tr class="align-middle">
+                                    <td class="fw-bold text-primary">
+                                        <i class="fas fa-paw me-2 text-muted"></i>
+                                        {{ mascota.nombre }}
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-info bg-opacity-10 text-info px-3 py-2">
+                                            {{ mascota.get_especie_display }}
+                                        </span>
+                                    </td>
+                                    <td class="text-muted">{{ mascota.raza }}</td>
+                                    <td>
+                                        <i class="fas fa-user-circle me-2 text-secondary"></i>
+                                        {{ mascota.propietario }}
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="btn-group shadow-sm" role="group">
+                                            <a href="{% url 'core:mascota_edit' mascota.pk %}" 
+                                               class="btn btn-sm btn-outline-info" 
+                                               title="Editar mascota"
+                                               data-bs-toggle="tooltip">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <button type="button" 
+                                                    class="btn btn-sm btn-outline-danger" 
+                                                    onclick="confirmarEliminacion('{% url 'core:mascota_delete' mascota.pk %}')"
+                                                    title="Eliminar mascota"
+                                                    data-bs-toggle="tooltip">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="5" class="text-center py-5">
+                                        <div class="empty-state">
+                                            <i class="fas fa-paw fa-3x text-muted mb-3"></i>
+                                            <h5 class="text-muted">No hay mascotas registradas</h5>
+                                            <p class="text-muted mb-4">
+                                                Comienza agregando tu primera mascota al sistema
+                                            </p>
+                                            <a href="{% url 'core:mascota_create' %}" class="btn btn-primary">
+                                                <i class="fas fa-plus me-2"></i>
+                                                Agregar Primera Mascota
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                   
+                    {% if mascotas.has_other_pages %}
+                    <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                        <div class="text-muted">
+                            Mostrando {{ mascotas.start_index }} - {{ mascotas.end_index }} 
+                            de {{ mascotas.paginator.count }} resultados
+                        </div>
+                        <nav aria-label="Navegación de páginas">
+                            <ul class="pagination pagination-sm mb-0">
+                                {% if mascotas.has_previous %}
+                                    <li class="page-item">
+                                        <a class="page-link rounded-start" 
+                                           href="?page={{ mascotas.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </a>
+                                    </li>
+                                {% endif %}
+
+                                {% for num in mascotas.paginator.page_range %}
+                                    <li class="page-item {% if mascotas.number == num %}active{% endif %}">
+                                        <a class="page-link" 
+                                           href="?page={{ num }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                            {{ num }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+
+                                {% if mascotas.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link rounded-end" 
+                                           href="?page={{ mascotas.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-danger text-white border-0">
+                <h5 class="modal-title" id="deleteModalLabel">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    Confirmar eliminación
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body text-center py-4">
+                <i class="fas fa-paw fa-3x text-danger mb-3"></i>
+                <h6 class="mb-3">¿Está seguro que desea eliminar esta mascota?</h6>
+                <p class="text-muted small">Esta acción no se puede deshacer.</p>
+            </div>
+            <div class="modal-footer border-0 justify-content-center">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-2"></i>
+                    Cancelar
+                </button>
+                <a href="" class="btn btn-danger" id="deleteConfirm">
+                    <i class="fas fa-trash-alt me-2"></i>
+                    Eliminar
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block extra_css %}
+<style>
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    }
+    
+    .btn-rounded {
+        border-radius: 25px;
+        padding: 8px 20px;
+    }
+    
+    .search-form .form-control:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    }
+    
+    .table th {
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+    }
+    
+    .table td {
+        vertical-align: middle;
+        padding: 1rem 0.75rem;
+    }
+    
+    .table-hover tbody tr:hover {
+        background-color: rgba(102, 126, 234, 0.05);
+        transform: translateY(-1px);
+        transition: all 0.2s ease;
+    }
+    
+    .btn-group .btn {
+        transition: all 0.2s ease;
+    }
+    
+    .btn-group .btn:hover {
+        transform: translateY(-1px);
+    }
+    
+    .empty-state {
+        padding: 2rem;
+    }
+    
+    .pagination .page-link {
+        border-radius: 8px;
+        margin: 0 2px;
+        border: 1px solid #dee2e6;
+        transition: all 0.2s ease;
+    }
+    
+    .pagination .page-item.active .page-link {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-color: #667eea;
+    }
+    
+    .pagination .page-link:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .card {
+        transition: all 0.3s ease;
+    }
+    
+    .badge {
+        background-color: #e6f0fa;
+        color: #007bff;
+    }
+    
+    /* Header con fondo blanco */
+    .card-header {
+        background-color: #ffffff !important;
+        border-bottom: 2px solid #e9ecef;
+    }
+    
+    @media (max-width: 768px) {
+        .container-fluid {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .table-responsive {
+            border-radius: 8px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function confirmarEliminacion(url) {
+    document.getElementById('deleteConfirm').href = url;
+    
+    // Para Bootstrap 5
+    if (typeof bootstrap !== 'undefined') {
+        const modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+        modal.show();
+    } 
+    // Para Bootstrap 4 (fallback)
+    else if (typeof $ !== 'undefined') {
+        $('#deleteModal').modal('show');
+    }
+}
+
+// Inicializar tooltips
+document.addEventListener('DOMContentLoaded', function() {
+    // Para Bootstrap 5
+    if (typeof bootstrap !== 'undefined') {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    }
+    // Para Bootstrap 4 (fallback)
+    else if (typeof $ !== 'undefined') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+});
+</script>
+{% endblock %}
+{% endblock %}

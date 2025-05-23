@@ -1,0 +1,206 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ page_title }} - {{ block.super }}{% endblock %}
+
+{% block page_title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Información de la Factura</h5>
+            </div>
+            <div class="card-body">
+                <form method="post" id="facturaForm">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.numero.id_for_label }}" class="form-label">Número de Factura</label>
+                            {{ form.numero }}
+                            {% if form.numero.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ form.numero.errors.0 }}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.propietario.id_for_label }}" class="form-label">Propietario</label>
+                            {{ form.propietario }}
+                            {% if form.propietario.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ form.propietario.errors.0 }}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h6 class="card-title mb-0">Detalle de Servicios</h6>
+                        </div>
+                        <div class="card-body">
+                            <div id="servicios-container">
+                                <!-- Los detalles de servicios se agregarán aquí dinámicamente -->
+                            </div>
+                            <button type="button" class="btn btn-secondary" id="agregar-servicio">
+                                <i class="fas fa-plus me-1"></i>Agregar Servicio
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Subtotal</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                {{ form.subtotal }}
+                            </div>
+                            {% if form.subtotal.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ form.subtotal.errors.0 }}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">IVA (19%)</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                {{ form.iva }}
+                            </div>
+                            {% if form.iva.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ form.iva.errors.0 }}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Total</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                {{ form.total }}
+                            </div>
+                            {% if form.total.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ form.total.errors.0 }}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end mt-3">
+                        <a href="{% url 'core:factura_list' %}" class="btn btn-secondary me-2">
+                            <i class="fas fa-times me-1"></i>Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-1"></i>Guardar Factura
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Lista de Servicios</h5>
+            </div>
+            <div class="card-body">
+                <div class="list-group" id="servicios-disponibles">
+                    {% for servicio in servicios %}
+                    <button type="button" class="list-group-item list-group-item-action"
+                            data-id="{{ servicio.id }}"
+                            data-nombre="{{ servicio.nombre }}"
+                            data-precio="{{ servicio.precio }}">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">{{ servicio.nombre }}</h6>
+                            <small>${{ servicio.precio|floatformat:2 }}</small>
+                        </div>
+                        <small class="text-muted">{{ servicio.descripcion|truncatechars:50 }}</small>
+                    </button>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const serviciosContainer = document.getElementById('servicios-container');
+    const btnAgregarServicio = document.getElementById('agregar-servicio');
+    const serviciosDisponibles = document.getElementById('servicios-disponibles');
+    
+    // Función para calcular totales
+    function calcularTotales() {
+        let subtotal = 0;
+        document.querySelectorAll('.servicio-row').forEach(row => {
+            const cantidad = parseFloat(row.querySelector('.cantidad').value) || 0;
+            const precio = parseFloat(row.querySelector('.precio').value) || 0;
+            subtotal += cantidad * precio;
+        });
+        
+        const iva = subtotal * 0.19;
+        const total = subtotal + iva;
+        
+        document.getElementById('id_subtotal').value = subtotal.toFixed(2);
+        document.getElementById('id_iva').value = iva.toFixed(2);
+        document.getElementById('id_total').value = total.toFixed(2);
+    }
+    
+    // Agregar servicio al hacer click en la lista
+    serviciosDisponibles.addEventListener('click', function(e) {
+        const btn = e.target.closest('.list-group-item');
+        if (!btn) return;
+        
+        const servicioId = btn.dataset.id;
+        const servicioNombre = btn.dataset.nombre;
+        const servicioPrecio = btn.dataset.precio;
+        
+        agregarServicioRow(servicioId, servicioNombre, servicioPrecio);
+    });
+    
+    function agregarServicioRow(id, nombre, precio) {
+        const row = document.createElement('div');
+        row.className = 'servicio-row row mb-3';
+        row.innerHTML = `
+            <input type="hidden" name="servicio_ids[]" value="${id}">
+            <div class="col-md-5">
+                <input type="text" class="form-control" value="${nombre}" readonly>
+            </div>
+            <div class="col-md-2">
+                <input type="number" class="form-control cantidad" name="cantidades[]" value="1" min="1">
+            </div>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control precio" value="${precio}" readonly>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-danger btn-sm remove-servicio">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        `;
+        
+        serviciosContainer.appendChild(row);
+        
+        // Configurar eventos
+        row.querySelector('.cantidad').addEventListener('change', calcularTotales);
+        row.querySelector('.remove-servicio').addEventListener('click', function() {
+            row.remove();
+            calcularTotales();
+        });
+        
+        calcularTotales();
+    }
+});
+</script>
+{% endblock %}

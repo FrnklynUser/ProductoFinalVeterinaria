@@ -1,0 +1,80 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ page_title }} - {{ block.super }}{% endblock %}
+
+{% block page_title %}{{ page_title }}{% endblock %}
+
+{% block page_actions %}
+    {% if factura.estado == 'PENDIENTE' %}
+    <a href="{% url 'core:factura_edit' factura.pk %}" class="btn btn-primary me-2">
+        <i class="fas fa-edit"></i> Editar
+    </a>
+    <a href="{% url 'core:factura_anular' factura.pk %}" class="btn btn-danger">
+        <i class="fas fa-ban"></i> Anular
+    </a>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title mb-4">Información de la Factura</h5>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <p class="mb-1"><strong>Número:</strong> {{ factura.numero }}</p>
+                        <p class="mb-1"><strong>Fecha:</strong> {{ factura.fecha|date:"d/m/Y" }}</p>
+                        <p class="mb-1">
+                            <strong>Estado:</strong>
+                            <span class="badge {% if factura.estado == 'PAGADA' %}bg-success{% elif factura.estado == 'ANULADA' %}bg-danger{% else %}bg-warning{% endif %}">
+                                {{ factura.get_estado_display }}
+                            </span>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-1"><strong>Propietario:</strong> {{ factura.propietario }}</p>
+                        <p class="mb-1"><strong>Dirección:</strong> {{ factura.propietario.direccion }}</p>
+                        <p class="mb-1"><strong>Teléfono:</strong> {{ factura.propietario.telefono }}</p>
+                    </div>
+                </div>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Servicio</th>
+                            <th class="text-center">Cantidad</th>
+                            <th class="text-end">Precio Unit.</th>
+                            <th class="text-end">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for detalle in detalles %}
+                        <tr>
+                            <td>{{ detalle.servicio.nombre }}</td>
+                            <td class="text-center">{{ detalle.cantidad }}</td>
+                            <td class="text-end">${{ detalle.precio_unitario|floatformat:2 }}</td>
+                            <td class="text-end">${{ detalle.subtotal|floatformat:2 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" class="text-end"><strong>Subtotal:</strong></td>
+                            <td class="text-end">${{ factura.subtotal|floatformat:2 }}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-end"><strong>IVA:</strong></td>
+                            <td class="text-end">${{ factura.iva|floatformat:2 }}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-end"><strong>Total:</strong></td>
+                            <td class="text-end"><strong>${{ factura.total|floatformat:2 }}</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
