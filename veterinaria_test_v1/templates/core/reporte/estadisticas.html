@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas Clínicas</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+        }
+        .btn-rounded {
+            border-radius: 25px;
+            padding: 8px 20px;
+        }
+        .search-form .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        .table th {
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        .table td {
+            vertical-align: middle;
+            padding: 1rem 0.75rem;
+        }
+        .table-hover tbody tr:hover {
+            background-color: rgba(102, 126, 234, 0.05);
+            transform: translateY(-1px);
+            transition: all 0.2s ease;
+        }
+        .btn-group .btn {
+            transition: all 0.2s ease;
+        }
+        .btn-group .btn:hover {
+            transform: translateY(-1px);
+        }
+        .empty-state {
+            padding: 2rem;
+        }
+        .pagination .page-link {
+            border-radius: 8px;
+            margin: 0 2px;
+            border: 1px solid #dee2e6;
+            transition: all 0.2s ease;
+        }
+        .pagination .page-item.active .page-link {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: #667eea;
+        }
+        .pagination .page-link:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .card {
+            transition: all 0.3s ease;
+        }
+        .badge {
+            background-color: #e6f0fa;
+            color: #007bff;
+        }
+        .card-header {
+            background-color: #ffffff !important;
+            border-bottom: 2px solid #e9ecef;
+        }
+        @media (max-width: 768px) {
+            .container-fluid {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            .card-body {
+                padding: 1.5rem;
+            }
+            .table-responsive {
+                border-radius: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid px-2">
+        <!-- Page Title -->
+        <h1 class="my-4">
+            <i class="fas fa-heartbeat text-primary"></i> Estadísticas Clínicas
+        </h1>
+
+        <!-- Page Actions -->
+        <div class="btn-group shadow-sm mb-4" role="group">
+            <button type="button" class="btn btn-outline-primary" onclick="confirmarExportacion('#', 'PDF')" data-bs-toggle="tooltip" title="Exportar como PDF">
+                <i class="fas fa-download me-2"></i>Exportar PDF
+            </button>
+            <button type="button" class="btn btn-outline-success" onclick="confirmarExportacion('#', 'Excel')" data-bs-toggle="tooltip" title="Exportar como Excel">
+                <i class="fas fa-file-excel me-2"></i>Exportar Excel
+            </button>
+        </div>
+
+        <!-- Search Form -->
+        <div class="row mb-2">
+            <div class="col-md-4 col-lg-3">
+                <form method="get" action="#" class="search-form">
+                    <div class="input-group input-group-sm shadow-sm">
+                        <span class="input-group-text bg-light border-end-0">
+                            <i class="fas fa-search text-muted"></i>
+                        </span>
+                        <input type="text" name="q" class="form-control border-start-0 ps-1" placeholder="Buscar..." value="">
+                        <button class="btn btn-outline-primary" type="submit">Buscar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <div class="card-body">
+                        <h6 class="text-muted text-uppercase">Total Tratamientos</h6>
+                        <h3 class="mb-0">150</h3>
+                        <div class="mt-2">
+                            <span class="text-success"><i class="fas fa-arrow-up me-1"></i>6.5%</span>
+                            <span class="text-muted">vs mes anterior</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <div class="card-body">
+                        <h6 class="text-muted text-uppercase">Diagnósticos Comunes</h6>
+                        <h3 class="mb-0">45</h3>
+                        <div class="mt-2">
+                            <span class="text-muted">Top 3: 60%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <div class="card-body">
+                        <h6 class="text-muted text-uppercase">Tasa de Éxito</h6>
+                        <h3 class="mb-0">92%</h3>
+                        <div class="mt-2">
+                            <span class="text-success"><i class="fas fa-arrow-up me-1"></i>4.1%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <div class="card-body">
+                        <h6 class="text-muted text-uppercase">Pacientes Atendidos</h6>
+                        <h3 class="mb-0">80</h3>
+                        <div class="mt-2">
+                            <span class="text-muted">Último mes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="row">
+            <div class="col-lg-8 mb-4">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <div class="card-header bg-white text-dark border-bottom">
+                        <h5 class="card-title mb-0">Tendencia de Tratamientos</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="tratamientos-chart" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <div class="card-header bg-white text-dark border-bottom">
+                        <h5 class="card-title mb-0">Diagnósticos Más Comunes</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="diagnosticos-chart" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Clinical Records Table -->
+        <div class="col-12">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-white text-dark border-bottom">
+                    <h5 class="mb-0 text-dark">
+                        <i class="fas fa-list-ul me-2"></i>Últimos Registros Clínicos
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th class="border-0"><i class="fas fa-calendar-alt me-1"></i>Fecha</th>
+                                    <th class="border-0"><i class="fas fa-paw me-1"></i>Mascota</th>
+                                    <th class="border-0"><i class="fas fa-user me-1"></i>Propietario</th>
+                                    <th class="border-0"><i class="fas fa-stethoscope me-1"></i>Diagnóstico</th>
+                                    <th class="border-0"><i class="fas fa-syringe me-1"></i>Tratamiento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="align-middle">
+                                    <td class="fw-bold text-primary"><i class="fas fa-calendar-alt me-2 text-muted"></i>15/05/2025</td>
+                                    <td><span class="badge bg-info bg-opacity-10 text-info px-3 py-2">Luna</span></td>
+                                    <td>Juan Pérez</td>
+                                    <td>Infección respiratoria</td>
+                                    <td>Antibióticos orales</td>
+                                </tr>
+                                <tr class="align-middle">
+                                    <td class="fw-bold text-primary"><i class="fas fa-calendar-alt me-2 text-muted"></i>10/05/2025</td>
+                                    <td><span class="badge bg-info bg-opacity-10 text-info px-3 py-2">Max</span></td>
+                                    <td>María Gómez</td>
+                                    <td>Dermatitis alérgica</td>
+                                    <td>Corticoides tópicos</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                        <div class="text-muted">Mostrando 1 - 2 de 2 resultados</div>
+                        <nav aria-label="Navegación de páginas">
+                            <ul class="pagination pagination-sm mb-0">
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Export Confirmation Modal -->
+        <div class="modal fade" id="exportModal" tabindex="-1" aria-labelledby="exportModalLabel">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content border-0 shadow-lg">
+                    <div class="modal-header bg-primary text-white border-0">
+                        <h5 class="modal-title" id="exportModalLabel"><i class="fas fa-download me-2"></i>Confirmar exportación</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body text-center py-4">
+                        <i class="fas fa-file-export fa-3x text-primary mb-3"></i>
+                        <h6 class="mb-3">¿Desea exportar las estadísticas clínicas en formato <span id="exportFormat"></span>?</h6>
+                        <p class="text-muted small">El archivo se descargará automáticamente.</p>
+                    </div>
+                    <div class="modal-footer border-0 justify-content-center">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"><i class="fas fa-times me-2"></i>Cancelar</button>
+                        <a href="#" class="btn btn-primary" id="exportConfirm"><i class="fas fa-download me-2"></i>Exportar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Export confirmation modal
+        function confirmarExportacion(url, format) {
+            document.getElementById('exportConfirm').href = url;
+            document.getElementById('exportFormat').textContent = format;
+            const modal = new bootstrap.Modal(document.getElementById('exportModal'));
+            modal.show();
+        }
+
+        // Initialize tooltips
+        document.addEventListener('DOMContentLoaded', function() {
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+            // Treatment trend chart
+            const tratamientosCtx = document.getElementById('tratamientos-chart').getContext('2d');
+            new Chart(tratamientosCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May'],
+                    datasets: [{
+                        label: 'Tratamientos Mensuales',
+                        data: [10, 20, 15, 25, 30],
+                        borderColor: 'rgb(75, 192, 192)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                        fill: true,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    }
+                }
+            });
+
+            // Common diagnoses chart
+            const diagnosticosCtx = document.getElementById('diagnosticos-chart').getContext('2d');
+            new Chart(diagnosticosCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Infección Respiratoria', 'Dermatitis', 'Gastritis', 'Otitis', 'Otros'],
+                    datasets: [{
+                        data: [30, 25, 20, 15, 10],
+                        backgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)',
+                            'rgb(255, 205, 86)',
+                            'rgb(75, 192, 192)',
+                            'rgb(153, 102, 255)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

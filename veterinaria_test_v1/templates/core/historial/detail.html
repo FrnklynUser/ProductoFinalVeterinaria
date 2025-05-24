@@ -1,0 +1,64 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">{{ page_title }}</h3>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h6 class="text-muted mb-2">Mascota</h6>
+                <p class="mb-3">{{ historial.mascota.nombre }}</p>
+
+                <h6 class="text-muted mb-2">Motivo de Consulta</h6>
+                <p class="mb-3">{{ historial.motivo_consulta }}</p>
+
+                <h6 class="text-muted mb-2">Diagnóstico</h6>
+                <p class="mb-3">{{ historial.diagnostico }}</p>
+
+                <h6 class="text-muted mb-2">Tratamiento</h6>
+                <p class="mb-3">{{ historial.tratamiento }}</p>
+
+                {% if historial.observaciones %}
+                <h6 class="text-muted mb-2">Observaciones</h6>
+                <p class="mb-3">{{ historial.observaciones }}</p>
+                {% endif %}
+
+                <h6 class="text-muted mb-2">Fecha de Registro</h6>
+                <p class="mb-3">{{ historial.fecha_registro|date:"d/m/Y H:i" }}</p>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Información de la Mascota</h5>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="text-muted mb-2">Especie</h6>
+                        <p class="mb-3">{{ historial.mascota.get_especie_display }}</p>
+
+                        <h6 class="text-muted mb-2">Raza</h6>
+                        <p class="mb-3">{{ historial.mascota.raza }}</p>
+
+                        <h6 class="text-muted mb-2">Propietario</h6>
+                        <p class="mb-3">{{ historial.mascota.propietario.usuario.get_full_name }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <a href="{% url 'core:historial_list' %}" class="btn btn-secondary me-2">
+                <i class="fas fa-arrow-left me-1"></i>Volver
+            </a>
+            <a href="{% url 'core:historial_edit' historial.pk %}" class="btn btn-primary me-2">
+                <i class="fas fa-edit me-1"></i>Editar
+            </a>
+            <a href="{% url 'core:historial_delete' historial.pk %}" class="btn btn-danger">
+                <i class="fas fa-trash me-1"></i>Eliminar
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
