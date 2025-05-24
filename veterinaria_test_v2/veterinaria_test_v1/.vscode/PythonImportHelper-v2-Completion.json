@@ -1,0 +1,1290 @@
+[
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "forms",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "authenticate",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "logout",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "views",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "login_required",
+        "importPath": "django.contrib.auth.decorators",
+        "description": "django.contrib.auth.decorators",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Sum",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "Workbook",
+        "importPath": "openpyxl",
+        "description": "openpyxl",
+        "isExtraImport": true,
+        "detail": "openpyxl",
+        "documentation": {}
+    },
+    {
+        "label": "io",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "io",
+        "description": "io",
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "get_asgi_application",
+        "importPath": "django.core.asgi",
+        "description": "django.core.asgi",
+        "isExtraImport": true,
+        "detail": "django.core.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "ApiConfig",
+        "kind": 6,
+        "importPath": "api.apps",
+        "description": "api.apps",
+        "peekOfCode": "class ApiConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'api'",
+        "detail": "api.apps",
+        "documentation": {}
+    },
+    {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "api.urls",
+        "description": "api.urls",
+        "peekOfCode": "app_name = 'api'\nurlpatterns = [\n    # path('vacunas/', views.vacunas_list),\n    # path('tratamientos/', views.tratamientos_list),\n]",
+        "detail": "api.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "api.urls",
+        "description": "api.urls",
+        "peekOfCode": "urlpatterns = [\n    # path('vacunas/', views.vacunas_list),\n    # path('tratamientos/', views.tratamientos_list),\n]",
+        "detail": "api.urls",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "core.migrations.0001_initial",
+        "description": "core.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Propietario',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "core.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "core.migrations.0002_servicio_cita_factura_historialclinico_and_more",
+        "description": "core.migrations.0002_servicio_cita_factura_historialclinico_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('core', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Servicio',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('nombre', models.CharField(max_length=100)),",
+        "detail": "core.migrations.0002_servicio_cita_factura_historialclinico_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "CoreConfig",
+        "kind": 6,
+        "importPath": "core.apps",
+        "description": "core.apps",
+        "peekOfCode": "class CoreConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core'",
+        "detail": "core.apps",
+        "documentation": {}
+    },
+    {
+        "label": "MascotaForm",
+        "kind": 6,
+        "importPath": "core.forms",
+        "description": "core.forms",
+        "peekOfCode": "class MascotaForm(forms.ModelForm):\n    class Meta:\n        model = Mascota\n        fields = ['nombre', 'especie', 'raza', 'fecha_nacimiento', 'propietario']\n        widgets = {\n            'fecha_nacimiento': forms.DateInput(attrs={'type': 'date'}),\n        }\nclass PropietarioForm(forms.ModelForm):\n    class Meta:\n        model = Propietario",
+        "detail": "core.forms",
+        "documentation": {}
+    },
+    {
+        "label": "PropietarioForm",
+        "kind": 6,
+        "importPath": "core.forms",
+        "description": "core.forms",
+        "peekOfCode": "class PropietarioForm(forms.ModelForm):\n    class Meta:\n        model = Propietario\n        fields = ['usuario', 'direccion', 'telefono']\nclass HistorialClinicoForm(forms.ModelForm):\n    class Meta:\n        model = HistorialClinico\n        fields = ['mascota', 'motivo_consulta', 'diagnostico', 'tratamiento', 'observaciones']\n        widgets = {\n            'mascota': forms.Select(attrs={",
+        "detail": "core.forms",
+        "documentation": {}
+    },
+    {
+        "label": "HistorialClinicoForm",
+        "kind": 6,
+        "importPath": "core.forms",
+        "description": "core.forms",
+        "peekOfCode": "class HistorialClinicoForm(forms.ModelForm):\n    class Meta:\n        model = HistorialClinico\n        fields = ['mascota', 'motivo_consulta', 'diagnostico', 'tratamiento', 'observaciones']\n        widgets = {\n            'mascota': forms.Select(attrs={\n                'class': 'form-select',\n                'placeholder': 'Seleccione una mascota'\n            }),\n            'motivo_consulta': forms.TextInput(attrs={",
+        "detail": "core.forms",
+        "documentation": {}
+    },
+    {
+        "label": "CitaForm",
+        "kind": 6,
+        "importPath": "core.forms",
+        "description": "core.forms",
+        "peekOfCode": "class CitaForm(forms.ModelForm):\n    class Meta:\n        model = Cita\n        fields = ['mascota', 'fecha_hora', 'motivo', 'estado', 'notas']\n        widgets = {\n            'mascota': forms.Select(attrs={\n                'class': 'form-select',\n                'placeholder': 'Seleccione una mascota'\n            }),\n            'fecha_hora': forms.DateTimeInput(attrs={",
+        "detail": "core.forms",
+        "documentation": {}
+    },
+    {
+        "label": "FacturaForm",
+        "kind": 6,
+        "importPath": "core.forms",
+        "description": "core.forms",
+        "peekOfCode": "class FacturaForm(forms.ModelForm):\n    class Meta:\n        model = Factura\n        fields = ['numero', 'propietario', 'subtotal', 'iva', 'total']\n        widgets = {\n            'numero': forms.TextInput(attrs={\n                'class': 'form-control',\n                'readonly': True\n            }),\n            'propietario': forms.Select(attrs={",
+        "detail": "core.forms",
+        "documentation": {}
+    },
+    {
+        "label": "UserProfileEditForm",
+        "kind": 6,
+        "importPath": "core.forms",
+        "description": "core.forms",
+        "peekOfCode": "class UserProfileEditForm(forms.ModelForm):\n    current_password = forms.CharField(widget=forms.PasswordInput(), required=False)\n    new_password = forms.CharField(widget=forms.PasswordInput(), required=False)\n    confirm_password = forms.CharField(widget=forms.PasswordInput(), required=False)\n    avatar = forms.ImageField(required=False)\n    class Meta:\n        model = User\n        fields = ['username', 'first_name', 'last_name', 'email']\n    def clean(self):\n        cleaned_data = super().clean()",
+        "detail": "core.forms",
+        "documentation": {}
+    },
+    {
+        "label": "Propietario",
+        "kind": 6,
+        "importPath": "core.models",
+        "description": "core.models",
+        "peekOfCode": "class Propietario(models.Model):\n    usuario = models.OneToOneField(User, on_delete=models.CASCADE)\n    direccion = models.CharField(max_length=200)\n    telefono = models.CharField(max_length=20)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return f\"{self.usuario.first_name} {self.usuario.last_name}\"\nclass Mascota(models.Model):\n    ESPECIE_CHOICES = [",
+        "detail": "core.models",
+        "documentation": {}
+    },
+    {
+        "label": "Mascota",
+        "kind": 6,
+        "importPath": "core.models",
+        "description": "core.models",
+        "peekOfCode": "class Mascota(models.Model):\n    ESPECIE_CHOICES = [\n        ('PERRO', 'Perro'),\n        ('GATO', 'Gato'),\n        ('AVE', 'Ave'),\n        ('OTRO', 'Otro'),\n    ]\n    nombre = models.CharField(max_length=100)\n    especie = models.CharField(max_length=20, choices=ESPECIE_CHOICES)\n    raza = models.CharField(max_length=100)",
+        "detail": "core.models",
+        "documentation": {}
+    },
+    {
+        "label": "HistorialClinico",
+        "kind": 6,
+        "importPath": "core.models",
+        "description": "core.models",
+        "peekOfCode": "class HistorialClinico(models.Model):\n    mascota = models.ForeignKey('Mascota', on_delete=models.CASCADE, related_name='historiales')\n    fecha = models.DateTimeField(auto_now_add=True)\n    motivo_consulta = models.CharField(max_length=200)\n    diagnostico = models.TextField()\n    tratamiento = models.TextField()\n    observaciones = models.TextField(blank=True)\n    class Meta:\n        ordering = ['-fecha']\n    def __str__(self):",
+        "detail": "core.models",
+        "documentation": {}
+    },
+    {
+        "label": "Cita",
+        "kind": 6,
+        "importPath": "core.models",
+        "description": "core.models",
+        "peekOfCode": "class Cita(models.Model):\n    ESTADO_CHOICES = [\n        ('PENDIENTE', 'Pendiente'),\n        ('CONFIRMADA', 'Confirmada'),\n        ('COMPLETADA', 'Completada'),\n        ('CANCELADA', 'Cancelada'),\n    ]\n    mascota = models.ForeignKey('Mascota', on_delete=models.CASCADE, related_name='citas')\n    fecha_hora = models.DateTimeField()\n    motivo = models.CharField(max_length=200)",
+        "detail": "core.models",
+        "documentation": {}
+    },
+    {
+        "label": "Servicio",
+        "kind": 6,
+        "importPath": "core.models",
+        "description": "core.models",
+        "peekOfCode": "class Servicio(models.Model):\n    nombre = models.CharField(max_length=100)\n    descripcion = models.TextField()\n    precio = models.DecimalField(max_digits=10, decimal_places=2)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.nombre\nclass Factura(models.Model):\n    ESTADO_CHOICES = [",
+        "detail": "core.models",
+        "documentation": {}
+    },
+    {
+        "label": "Factura",
+        "kind": 6,
+        "importPath": "core.models",
+        "description": "core.models",
+        "peekOfCode": "class Factura(models.Model):\n    ESTADO_CHOICES = [\n        ('PENDIENTE', 'Pendiente'),\n        ('PAGADA', 'Pagada'),\n        ('ANULADA', 'Anulada'),\n    ]\n    propietario = models.ForeignKey('Propietario', on_delete=models.PROTECT)\n    fecha = models.DateField(auto_now_add=True)\n    numero = models.CharField(max_length=20, unique=True)\n    estado = models.CharField(max_length=20, choices=ESTADO_CHOICES, default='PENDIENTE')",
+        "detail": "core.models",
+        "documentation": {}
+    },
+    {
+        "label": "DetalleFactura",
+        "kind": 6,
+        "importPath": "core.models",
+        "description": "core.models",
+        "peekOfCode": "class DetalleFactura(models.Model):\n    factura = models.ForeignKey(Factura, on_delete=models.CASCADE, related_name='detalles')\n    servicio = models.ForeignKey(Servicio, on_delete=models.CASCADE)\n    cantidad = models.IntegerField(default=1)\n    precio_unitario = models.DecimalField(max_digits=10, decimal_places=2)\n    subtotal = models.DecimalField(max_digits=10, decimal_places=2)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return f\"{self.servicio.nombre} - Factura #{self.factura.numero}\"",
+        "detail": "core.models",
+        "documentation": {}
+    },
+    {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "core.urls",
+        "description": "core.urls",
+        "peekOfCode": "app_name = 'core'\nurlpatterns = [\n    path('', views.login_view, name='login'),\n    path('dashboard/', views.dashboard, name='dashboard'),\n    path('logout/', views.custom_logout, name='logout'),  \n    path('profile/', views.profile_view, name='profile'),\n    path('profile/edit/', views.profile_edit, name='profile_edit'),\n    # URLs para Mascotas\n    path('mascotas/', views.mascota_list, name='mascota_list'),\n    path('mascotas/crear/', views.mascota_create, name='mascota_create'),",
+        "detail": "core.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "core.urls",
+        "description": "core.urls",
+        "peekOfCode": "urlpatterns = [\n    path('', views.login_view, name='login'),\n    path('dashboard/', views.dashboard, name='dashboard'),\n    path('logout/', views.custom_logout, name='logout'),  \n    path('profile/', views.profile_view, name='profile'),\n    path('profile/edit/', views.profile_edit, name='profile_edit'),\n    # URLs para Mascotas\n    path('mascotas/', views.mascota_list, name='mascota_list'),\n    path('mascotas/crear/', views.mascota_create, name='mascota_create'),\n    path('mascotas/<int:pk>/editar/', views.mascota_edit, name='mascota_edit'),",
+        "detail": "core.urls",
+        "documentation": {}
+    },
+    {
+        "label": "login_view",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def login_view(request):\n    if request.method == 'POST':\n        username = request.POST.get('username')\n        password = request.POST.get('password')\n        user = authenticate(request, username=username, password=password)\n        if user is not None:\n            login(request, user)\n            return redirect('core:dashboard')  # Añade el namespace 'core:'\n        else:\n            messages.error(request, 'Usuario o contraseña incorrectos') ",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "dashboard",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def dashboard(request):\n    hoy = timezone.now().date()\n    context = {\n        'mascotas_count': Mascota.objects.count(),\n        'propietarios_count': Propietario.objects.count(),\n        'citas_hoy': Cita.objects.filter(fecha_hora__date=hoy).count(),\n        'historiales_count': HistorialClinico.objects.count(),\n        'ingresos_hoy': Factura.objects.filter(\n            fecha=hoy, \n            estado='PAGADA'",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "logout_view",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def logout_view(request):\n    logout(request)\n    messages.success(request, 'Has cerrado sesión exitosamente.')\n    return redirect('core:login')\n@login_required\ndef mascota_list(request):\n    mascotas = Mascota.objects.all()\n    return render(request, 'core/mascota/list.html', {\n        'mascotas': mascotas,\n        'page_title': 'Mascotas'",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "mascota_list",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def mascota_list(request):\n    mascotas = Mascota.objects.all()\n    return render(request, 'core/mascota/list.html', {\n        'mascotas': mascotas,\n        'page_title': 'Mascotas'\n    })\n@login_required\ndef mascota_create(request):\n    if request.method == 'POST':\n        form = MascotaForm(request.POST)",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "mascota_create",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def mascota_create(request):\n    if request.method == 'POST':\n        form = MascotaForm(request.POST)\n        if form.is_valid():\n            form.save()\n            messages.success(request, 'Mascota creada exitosamente.')\n            return redirect('mascota_list')\n    else:\n        form = MascotaForm()\n    return render(request, 'core/mascota/form.html', {",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "mascota_edit",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def mascota_edit(request, pk):\n    mascota = get_object_or_404(Mascota, pk=pk)\n    if request.method == 'POST':\n        form = MascotaForm(request.POST, instance=mascota)\n        if form.is_valid():\n            form.save()\n            messages.success(request, 'Mascota actualizada exitosamente.')\n            return redirect('mascota_list')\n    else:\n        form = MascotaForm(instance=mascota)",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "mascota_delete",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def mascota_delete(request, pk):\n    mascota = get_object_or_404(Mascota, pk=pk)\n    if request.method == 'POST':\n        mascota.delete()\n        messages.success(request, 'Mascota eliminada exitosamente.')\n        return redirect('mascota_list')\n    return render(request, 'core/mascota/delete.html', {\n        'mascota': mascota,\n        'page_title': 'Eliminar Mascota'\n    })",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "propietario_list",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def propietario_list(request):\n    propietarios = Propietario.objects.all()\n    return render(request, 'core/propietario/list.html', {\n        'propietarios': propietarios,\n        'page_title': 'Propietarios'\n    })\n@login_required\ndef propietario_create(request):\n    if request.method == 'POST':\n        form = PropietarioForm(request.POST)",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "propietario_create",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def propietario_create(request):\n    if request.method == 'POST':\n        form = PropietarioForm(request.POST)\n        if form.is_valid():\n            form.save()\n            messages.success(request, 'Propietario creado exitosamente.')\n            return redirect('propietario_list')\n    else:\n        form = PropietarioForm()\n    return render(request, 'core/propietario/form.html', {",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "propietario_edit",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def propietario_edit(request, pk):\n    propietario = get_object_or_404(Propietario, pk=pk)\n    if request.method == 'POST':\n        form = PropietarioForm(request.POST, instance=propietario)\n        if form.is_valid():\n            form.save()\n            messages.success(request, 'Propietario actualizado exitosamente.')\n            return redirect('propietario_list')\n    else:\n        form = PropietarioForm(instance=propietario)",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "propietario_delete",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def propietario_delete(request, pk):\n    propietario = get_object_or_404(Propietario, pk=pk)\n    if request.method == 'POST':\n        propietario.delete()\n        messages.success(request, 'Propietario eliminado exitosamente.')\n        return redirect('propietario_list')\n    return render(request, 'core/propietario/delete.html', {\n        'propietario': propietario,\n        'page_title': 'Eliminar Propietario'\n    })",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "historial_list",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def historial_list(request):\n    historiales = HistorialClinico.objects.select_related('mascota').all()\n    return render(request, 'core/historial/list.html', {\n        'historiales': historiales,\n        'page_title': 'Historial Clínico'\n    })\n@login_required\ndef historial_create(request):\n    if request.method == 'POST':\n        form = HistorialClinicoForm(request.POST)",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "historial_create",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def historial_create(request):\n    if request.method == 'POST':\n        form = HistorialClinicoForm(request.POST)\n        if form.is_valid():\n            form.save()\n            messages.success(request, 'Registro creado exitosamente.')\n            return redirect('historial_list')\n    else:\n        form = HistorialClinicoForm()\n    return render(request, 'core/historial/form.html', {",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "historial_edit",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def historial_edit(request, pk):\n    historial = get_object_or_404(HistorialClinico, pk=pk)\n    if request.method == 'POST':\n        form = HistorialClinicoForm(request.POST, instance=historial)\n        if form.is_valid():\n            form.save()\n            messages.success(request, 'Registro actualizado exitosamente.')\n            return redirect('historial_list')\n    else:\n        form = HistorialClinicoForm(instance=historial)",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "historial_delete",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def historial_delete(request, pk):\n    historial = get_object_or_404(HistorialClinico, pk=pk)\n    if request.method == 'POST':\n        historial.delete()\n        messages.success(request, 'Registro eliminado exitosamente.')\n        return redirect('historial_list')\n    return render(request, 'core/historial/delete.html', {\n        'historial': historial,\n        'page_title': 'Eliminar Registro'\n    })",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "cita_list",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def cita_list(request):\n    citas = Cita.objects.select_related('mascota').all()\n    return render(request, 'core/cita/list.html', {\n        'citas': citas,\n        'page_title': 'Citas'\n    })\n@login_required\ndef cita_create(request):\n    if request.method == 'POST':\n        form = CitaForm(request.POST)",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "cita_create",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def cita_create(request):\n    if request.method == 'POST':\n        form = CitaForm(request.POST)\n        if form.is_valid():\n            form.save()\n            messages.success(request, 'Cita creada exitosamente.')\n            return redirect('cita_list')\n    else:\n        form = CitaForm()\n    return render(request, 'core/cita/form.html', {",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "cita_edit",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def cita_edit(request, pk):\n    cita = get_object_or_404(Cita, pk=pk)\n    if request.method == 'POST':\n        form = CitaForm(request.POST, instance=cita)\n        if form.is_valid():\n            form.save()\n            messages.success(request, 'Cita actualizada exitosamente.')\n            return redirect('cita_detail', pk=cita.pk)\n    else:\n        form = CitaForm(instance=cita)",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "cita_delete",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def cita_delete(request, pk):\n    cita = get_object_or_404(Cita, pk=pk)\n    if request.method == 'POST':\n        cita.delete()\n        messages.success(request, 'Cita eliminada exitosamente.')\n        return redirect('cita_list')\n    return render(request, 'core/cita/delete.html', {\n        'cita': cita,\n        'page_title': 'Eliminar Cita'\n    })",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "cita_detail",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def cita_detail(request, pk):\n    cita = get_object_or_404(Cita, pk=pk)\n    historial_reciente = cita.mascota.historiales.order_by('-fecha').first()\n    return render(request, 'core/cita/detail.html', {\n        'cita': cita,\n        'historial_reciente': historial_reciente,\n        'page_title': f'Cita #{cita.id}'\n    })\n# Factura views\n@login_required",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "factura_list",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def factura_list(request):\n    facturas = Factura.objects.select_related('propietario')\n    return render(request, 'core/factura/list.html', {\n        'facturas': facturas,\n        'page_title': 'Facturas'\n    })\n@login_required\ndef factura_create(request):\n    if request.method == 'POST':\n        form = FacturaForm(request.POST)",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "factura_create",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def factura_create(request):\n    if request.method == 'POST':\n        form = FacturaForm(request.POST)\n        if form.is_valid():\n            form.save()\n            messages.success(request, 'Factura creada exitosamente.')\n            return redirect('factura_list')\n    else:\n        form = FacturaForm()\n    return render(request, 'core/factura/form.html', {",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "factura_edit",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def factura_edit(request, pk):\n    factura = get_object_or_404(Factura, pk=pk)\n    if request.method == 'POST':\n        form = FacturaForm(request.POST, instance=factura)\n        if form.is_valid():\n            form.save()\n            messages.success(request, 'Factura actualizada exitosamente.')\n            return redirect('factura_list')\n    else:\n        form = FacturaForm(instance=factura)",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "factura_delete",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def factura_delete(request, pk):\n    factura = get_object_or_404(Factura, pk=pk)\n    if request.method == 'POST':\n        factura.delete()\n        messages.success(request, 'Factura eliminada exitosamente.')\n        return redirect('factura_list')\n    return render(request, 'core/factura/delete.html', {\n        'factura': factura,\n        'page_title': 'Eliminar Factura'\n    })",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "factura_detail",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def factura_detail(request, pk):\n    factura = get_object_or_404(Factura, pk=pk)\n    detalles = factura.detalles.select_related('servicio').all()\n    return render(request, 'core/factura/detail.html', {\n        'factura': factura,\n        'detalles': detalles,\n        'page_title': f'Factura #{factura.numero}'\n    })\n@login_required\ndef factura_anular(request, pk):",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "factura_anular",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def factura_anular(request, pk):\n    factura = get_object_or_404(Factura, pk=pk)\n    if request.method == 'POST':\n        factura.estado = 'ANULADA'\n        factura.save()\n        messages.success(request, 'Factura anulada exitosamente.')\n        return redirect('factura_list')\n    return render(request, 'core/factura/anular.html', {\n        'factura': factura,\n        'page_title': 'Anular Factura'",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "reporte_dashboard",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def reporte_dashboard(request):\n    return render(request, 'core/reporte/dashboard_1.html', {\n        'page_title': 'Dashboard de Reportes'\n    })\n@login_required\ndef reporte_ventas(request):\n    return render(request, 'core/reporte/ventas.html', {\n        'page_title': 'Reporte de Ventas'\n    })\n@login_required",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "reporte_ventas",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def reporte_ventas(request):\n    return render(request, 'core/reporte/ventas.html', {\n        'page_title': 'Reporte de Ventas'\n    })\n@login_required\ndef reporte_citas(request):\n    return render(request, 'core/reporte/citas.html', {\n        'page_title': 'Reporte de Citas'\n    })\n@login_required",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "reporte_citas",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def reporte_citas(request):\n    return render(request, 'core/reporte/citas.html', {\n        'page_title': 'Reporte de Citas'\n    })\n@login_required\ndef profile_view(request):\n    return render(request, 'core/profile.html', {\n        'user': request.user,\n        'page_title': 'Mi Perfil'\n    })",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "profile_view",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def profile_view(request):\n    return render(request, 'core/profile.html', {\n        'user': request.user,\n        'page_title': 'Mi Perfil'\n    })\n@login_required\ndef profile_edit(request):\n    if request.method == 'POST':\n        form = UserProfileEditForm(request.POST, request.FILES, instance=request.user)\n        if form.is_valid():",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "profile_edit",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def profile_edit(request):\n    if request.method == 'POST':\n        form = UserProfileEditForm(request.POST, request.FILES, instance=request.user)\n        if form.is_valid():\n            form.save()\n            messages.success(request, 'Perfil actualizado correctamente.')\n            return redirect('core:profile')\n    else:\n        form = UserProfileEditForm(instance=request.user)\n    return render(request, 'core/profile_edit.html', {'form': form})",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "custom_logout",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def custom_logout(request):\n    logout(request)\n    messages.success(request, 'Has cerrado sesión exitosamente.')\n    return redirect('core:login')\n@login_required\ndef estadisticas_clinicas(request):\n    return render(request, 'core/reporte/estadisticas.html', {\n        'page_title': 'Estadísticas Clínicas'\n    })\ndef exportar_estadisticas_clinicas_excel(request):",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "estadisticas_clinicas",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def estadisticas_clinicas(request):\n    return render(request, 'core/reporte/estadisticas.html', {\n        'page_title': 'Estadísticas Clínicas'\n    })\ndef exportar_estadisticas_clinicas_excel(request):\n    wb = Workbook()\n    ws = wb.active\n    ws.title = \"Estadísticas\"\n    ws.append([\"Paciente\", \"Tratamiento\", \"Fecha\"])\n    # Aquí puedes agregar datos reales, ejemplo comentado:",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "exportar_estadisticas_clinicas_excel",
+        "kind": 2,
+        "importPath": "core.views",
+        "description": "core.views",
+        "peekOfCode": "def exportar_estadisticas_clinicas_excel(request):\n    wb = Workbook()\n    ws = wb.active\n    ws.title = \"Estadísticas\"\n    ws.append([\"Paciente\", \"Tratamiento\", \"Fecha\"])\n    # Aquí puedes agregar datos reales, ejemplo comentado:\n    # ws.append([\"Juan Pérez\", \"Carilla\", \"2025-05-01\"])\n    response = HttpResponse(\n        content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'\n    )",
+        "detail": "core.views",
+        "documentation": {}
+    },
+    {
+        "label": "TratamientosConfig",
+        "kind": 6,
+        "importPath": "tratamientos.apps",
+        "description": "tratamientos.apps",
+        "peekOfCode": "class TratamientosConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'tratamientos'",
+        "detail": "tratamientos.apps",
+        "documentation": {}
+    },
+    {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "tratamientos.urls",
+        "description": "tratamientos.urls",
+        "peekOfCode": "app_name = 'tratamientos'\nurlpatterns = [\n    # path('', views.index, name='index'),\n]",
+        "detail": "tratamientos.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "tratamientos.urls",
+        "description": "tratamientos.urls",
+        "peekOfCode": "urlpatterns = [\n    # path('', views.index, name='index'),\n]",
+        "detail": "tratamientos.urls",
+        "documentation": {}
+    },
+    {
+        "label": "VacunasConfig",
+        "kind": 6,
+        "importPath": "vacunas.apps",
+        "description": "vacunas.apps",
+        "peekOfCode": "class VacunasConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'vacunas'",
+        "detail": "vacunas.apps",
+        "documentation": {}
+    },
+    {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "vacunas.urls",
+        "description": "vacunas.urls",
+        "peekOfCode": "app_name = 'vacunas'\nurlpatterns = [\n    # path('', views.index, name='index'),\n]",
+        "detail": "vacunas.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "vacunas.urls",
+        "description": "vacunas.urls",
+        "peekOfCode": "urlpatterns = [\n    # path('', views.index, name='index'),\n]",
+        "detail": "vacunas.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "veterinaria_v1.asgi",
+        "description": "veterinaria_v1.asgi",
+        "peekOfCode": "application = get_asgi_application()",
+        "detail": "veterinaria_v1.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-ox45g_8e-)#6^*k@@3v(td84ud^8ou^$vnefa$=c%-@r%potnk'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-ox45g_8e-)#6^*k@@3v(td84ud^8ou^$vnefa$=c%-@r%potnk'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'django.contrib.sites',",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'django.contrib.sites',\n    'core.apps.CoreConfig',\n    'allauth',",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SITE_ID",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "SITE_ID = 1\nMIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n    'allauth.account.middleware.AccountMiddleware',",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n    'allauth.account.middleware.AccountMiddleware',\n]",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "ROOT_URLCONF = 'veterinaria_v1.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [BASE_DIR / 'templates'],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [BASE_DIR / 'templates'],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "WSGI_APPLICATION = 'veterinaria_v1.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.2/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': 'dbveterinaria',\n        'USER': 'admin_veterinaria',\n        'PASSWORD': 'root',\n        'HOST': '127.0.0.1',",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': 'dbveterinaria',\n        'USER': 'admin_veterinaria',\n        'PASSWORD': 'root',\n        'HOST': '127.0.0.1',\n        'PORT': '5432',\n    }\n}",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS = [\n    os.path.join(BASE_DIR, 'static'),\n]",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS = [\n    os.path.join(BASE_DIR, 'static'),\n]\n# Default primary key field type",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS = [\n    os.path.join(BASE_DIR, 'static'),\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS = [\n    os.path.join(BASE_DIR, 'static'),\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "STATIC_URL = 'static/'\nSTATICFILES_DIRS = [\n    os.path.join(BASE_DIR, 'static'),\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n# Authentication settings\nLOGIN_URL = 'core:login'\nLOGIN_REDIRECT_URL = 'core:dashboard'",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATICFILES_DIRS",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "STATICFILES_DIRS = [\n    os.path.join(BASE_DIR, 'static'),\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n# Authentication settings\nLOGIN_URL = 'core:login'\nLOGIN_REDIRECT_URL = 'core:dashboard'\nLOGOUT_REDIRECT_URL = 'core:login'",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_AUTO_FIELD",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n# Authentication settings\nLOGIN_URL = 'core:login'\nLOGIN_REDIRECT_URL = 'core:dashboard'\nLOGOUT_REDIRECT_URL = 'core:login'\n# Add these settings for django-allauth\nACCOUNT_EMAIL_REQUIRED = True\nACCOUNT_EMAIL_VERIFICATION = 'none'\nACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True\n# Authentication backends",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LOGIN_URL",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "LOGIN_URL = 'core:login'\nLOGIN_REDIRECT_URL = 'core:dashboard'\nLOGOUT_REDIRECT_URL = 'core:login'\n# Add these settings for django-allauth\nACCOUNT_EMAIL_REQUIRED = True\nACCOUNT_EMAIL_VERIFICATION = 'none'\nACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True\n# Authentication backends\nAUTHENTICATION_BACKENDS = [\n    'django.contrib.auth.backends.ModelBackend',",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LOGIN_REDIRECT_URL",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "LOGIN_REDIRECT_URL = 'core:dashboard'\nLOGOUT_REDIRECT_URL = 'core:login'\n# Add these settings for django-allauth\nACCOUNT_EMAIL_REQUIRED = True\nACCOUNT_EMAIL_VERIFICATION = 'none'\nACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True\n# Authentication backends\nAUTHENTICATION_BACKENDS = [\n    'django.contrib.auth.backends.ModelBackend',\n    'allauth.account.auth_backends.AuthenticationBackend',",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LOGOUT_REDIRECT_URL",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "LOGOUT_REDIRECT_URL = 'core:login'\n# Add these settings for django-allauth\nACCOUNT_EMAIL_REQUIRED = True\nACCOUNT_EMAIL_VERIFICATION = 'none'\nACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True\n# Authentication backends\nAUTHENTICATION_BACKENDS = [\n    'django.contrib.auth.backends.ModelBackend',\n    'allauth.account.auth_backends.AuthenticationBackend',\n]",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ACCOUNT_EMAIL_REQUIRED",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "ACCOUNT_EMAIL_REQUIRED = True\nACCOUNT_EMAIL_VERIFICATION = 'none'\nACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True\n# Authentication backends\nAUTHENTICATION_BACKENDS = [\n    'django.contrib.auth.backends.ModelBackend',\n    'allauth.account.auth_backends.AuthenticationBackend',\n]",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ACCOUNT_EMAIL_VERIFICATION",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "ACCOUNT_EMAIL_VERIFICATION = 'none'\nACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True\n# Authentication backends\nAUTHENTICATION_BACKENDS = [\n    'django.contrib.auth.backends.ModelBackend',\n    'allauth.account.auth_backends.AuthenticationBackend',\n]",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True\n# Authentication backends\nAUTHENTICATION_BACKENDS = [\n    'django.contrib.auth.backends.ModelBackend',\n    'allauth.account.auth_backends.AuthenticationBackend',\n]",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTHENTICATION_BACKENDS",
+        "kind": 5,
+        "importPath": "veterinaria_v1.settings",
+        "description": "veterinaria_v1.settings",
+        "peekOfCode": "AUTHENTICATION_BACKENDS = [\n    'django.contrib.auth.backends.ModelBackend',\n    'allauth.account.auth_backends.AuthenticationBackend',\n]",
+        "detail": "veterinaria_v1.settings",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "veterinaria_v1.urls",
+        "description": "veterinaria_v1.urls",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('', include('core.urls')),\n    path('accounts/', include('allauth.urls')),\n    path('api/', include('api.urls')),\n    path('vacunas/', include('vacunas.urls')),\n    path('tratamientos/', include('tratamientos.urls')),\n]",
+        "detail": "veterinaria_v1.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "veterinaria_v1.wsgi",
+        "description": "veterinaria_v1.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "veterinaria_v1.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "manage",
+        "description": "manage",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'veterinaria_v1.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "detail": "manage",
+        "documentation": {}
+    }
+]

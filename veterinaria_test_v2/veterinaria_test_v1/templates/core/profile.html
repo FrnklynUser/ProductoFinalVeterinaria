@@ -1,0 +1,39 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-user me-2"></i>Mi Perfil</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-4 text-center">
+                            <div class="avatar-circle mb-3">
+                                <i class="fas fa-user-circle fa-5x text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h5 class="card-title">Información Personal</h5>
+                            <p class="mb-2"><strong>Usuario:</strong> {{ user.username }}</p>
+                            <p class="mb-2"><strong>Nombre:</strong> {{ user.first_name }}</p>
+                            <p class="mb-2"><strong>Apellido:</strong> {{ user.last_name }}</p>
+                            <p class="mb-2"><strong>Email:</strong> {{ user.email }}</p>
+                            <p class="mb-2"><strong>Fecha de registro:</strong> {{ user.date_joined|date:"d/m/Y" }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-end">
+                            <a href="{% url 'core:profile_edit' %}" class="btn btn-primary">
+                                <i class="fas fa-edit me-2"></i>Editar Perfil
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

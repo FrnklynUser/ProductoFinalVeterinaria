@@ -1,0 +1,219 @@
+{% extends "core/base.html" %}
+
+{% block title %}Nueva Mascota - {{ block.super }}{% endblock %}
+
+{% block page_title %}
+    <i class="fas fa-paw text-primary"></i> Nueva Mascota
+{% endblock %}
+
+{% block page_actions %}
+    <a href="{% url 'core:mascota_list' %}" class="btn btn-outline-secondary btn-rounded shadow-sm">
+        <i class="fas fa-arrow-left"></i> Volver a la Lista
+    </a>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-2">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-white text-dark border-bottom">
+                    <h5 class="mb-0 text-dark">
+                        <i class="fas fa-plus-circle me-2"></i>
+                        Registrar Nueva Mascota
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <form method="post" action="{% url 'core:mascota_create' %}" id="mascotaForm">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="id_nombre" class="form-label fw-bold">Nombre</label>
+                                <div class="input-group shadow-sm">
+                                    <span class="input-group-text bg-light border-end-0">
+                                        <i class="fas fa-paw text-muted"></i>
+                                    </span>
+                                    {{ form.nombre }}
+                                </div>
+                                {% if form.nombre.errors %}
+                                    <div class="text-danger small mt-1">{{ form.nombre.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="id_especie" class="form-label fw-bold">Especie</label>
+                                <div class="input-group shadow-sm">
+                                    <span class="input-group-text bg-light border-end-0">
+                                        <i class="fas fa-dog text-muted"></i>
+                                    </span>
+                                    {{ form.especie }}
+                                </div>
+                                {% if form.especie.errors %}
+                                    <div class="text-danger small mt-1">{{ form.especie.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="id_raza" class="form-label fw-bold">Raza</label>
+                                <div class="input-group shadow-sm">
+                                    <span class="input-group-text bg-light border-end-0">
+                                        <i class="fas fa-cat text-muted"></i>
+                                    </span>
+                                    {{ form.raza }}
+                                </div>
+                                {% if form.raza.errors %}
+                                    <div class="text-danger small mt-1">{{ form.raza.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="id_fecha_nacimiento" class="form-label fw-bold">Fecha de Nacimiento</label>
+                                <div class="input-group shadow-sm">
+                                    <span class="input-group-text bg-light border-end-0">
+                                        <i class="fas fa-calendar-alt text-muted"></i>
+                                    </span>
+                                    {{ form.fecha_nacimiento }}
+                                </div>
+                                {% if form.fecha_nacimiento.errors %}
+                                    <div class="text-danger small mt-1">{{ form.fecha_nacimiento.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="id_propietario" class="form-label fw-bold">Propietario</label>
+                                <div class="input-group shadow-sm">
+                                    <span class="input-group-text bg-light border-end-0">
+                                        <i class="fas fa-user text-muted"></i>
+                                    </span>
+                                    {{ form.propietario }}
+                                </div>
+                                {% if form.propietario.errors %}
+                                    <div class="text-danger small mt-1">{{ form.propietario.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end mt-4">
+                            <button type="button" class="btn btn-outline-secondary me-2" onclick="window.location.href='{% url 'core:mascota_list' %}'">
+                                <i class="fas fa-times me-2"></i>Cancelar
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="confirmarCreacion()" data-bs-toggle="tooltip" title="Guardar mascota">
+                                <i class="fas fa-save me-2"></i>Guardar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div class="modal fade" id="crearModal" tabindex="-1" role="dialog" aria-labelledby="crearModalLabel">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-primary text-white border-0">
+                <h5 class="modal-title" id="crearModalLabel">
+                    <i class="fas fa-check-circle me-2"></i>
+                    Confirmar creación
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body text-center py-4">
+                <i class="fas fa-paw fa-3x text-primary mb-3"></i>
+                <h6 class="mb-3">¿Está seguro que desea registrar esta mascota?</h6>
+                <p class="text-muted small">Verifique que todos los datos sean correctos.</p>
+            </div>
+            <div class="modal-footer border-0 justify-content-center">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-2"></i>Cancelar
+                </button>
+                <button type="button" class="btn btn-primary" onclick="document.getElementById('mascotaForm').submit()">
+                    <i class="fas fa-save me-2"></i>Registrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block extra_css %}
+<style>
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    }
+    
+    .btn-rounded {
+        border-radius: 25px;
+        padding: 8px 20px;
+    }
+    
+    .form-control:focus, .form-select:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    }
+    
+    .input-group .form-control, .input-group .form-select {
+        border-left: 0;
+    }
+    
+    .input-group-text {
+        background-color: #f8f9fa;
+    }
+    
+    .card {
+        transition: all 0.3s ease;
+    }
+    
+    .card-header {
+        background-color: #ffffff !important;
+        border-bottom: 2px solid #e9ecef;
+    }
+    
+    .form-label {
+        font-size: 0.9rem;
+        color: #495057;
+    }
+    
+    .btn:hover {
+        transform: translateY(-1px);
+    }
+    
+    @media (max-width: 768px) {
+        .container-fluid {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function confirmarCreacion() {
+    // For Bootstrap 5
+    if (typeof bootstrap !== 'undefined') {
+        const modal = new bootstrap.Modal(document.getElementById('crearModal'));
+        modal.show();
+    } 
+    // For Bootstrap 4 (fallback)
+    else if (typeof $ !== 'undefined') {
+        $('#crearModal').modal('show');
+    }
+}
+
+// Initialize tooltips
+document.addEventListener('DOMContentLoaded', function() {
+    // For Bootstrap 5
+    if (typeof bootstrap !== 'undefined') {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    }
+    // For Bootstrap 4 (fallback)
+    else if (typeof $ !== 'undefined') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+});
+</script>
+{% endblock %}
+{% endblock %}

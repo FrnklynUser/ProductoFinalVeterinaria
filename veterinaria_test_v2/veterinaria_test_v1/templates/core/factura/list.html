@@ -1,0 +1,82 @@
+{% extends "core/base.html" %}
+{% block content %}
+<div class="container-fluid px-2">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-white text-dark border-bottom">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h5 class="mb-0">
+                                <i class="fas fa-file-invoice-dollar me-2"></i>
+                                Facturas
+                            </h5>
+                        </div>
+                        <div class="col-auto">
+                            <a href="{% url 'core:factura_create' %}" class="btn btn-primary">
+                                <i class="fas fa-plus me-2"></i>Nueva Factura
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-body p-4">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Número</th>
+                                    <th>Fecha</th>
+                                    <th>Mascota</th>
+                                    <th>Subtotal</th>
+                                    <th>IVA</th>
+                                    <th>Total</th>
+                                    <th>Estado</th>
+                                    <th class="text-center">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for factura in facturas %}
+                                <tr>
+                                    <td class="fw-bold">#{{ factura.numero }}</td>
+                                    <td>{{ factura.fecha_emision|date:"d/m/Y" }}</td>
+                                    <td>{{ factura.cita.mascota.nombre }}</td>
+                                    <td>${{ factura.subtotal|floatformat:2 }}</td>
+                                    <td>${{ factura.iva|floatformat:2 }}</td>
+                                    <td>${{ factura.total|floatformat:2 }}</td>
+                                    <td>
+                                        <span class="badge {% if factura.estado == 'PENDIENTE' %}bg-warning
+                                                       {% elif factura.estado == 'PAGADA' %}bg-success
+                                                       {% else %}bg-danger{% endif %}">
+                                            {{ factura.get_estado_display }}
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="btn-group">
+                                            <a href="{% url 'core:factura_detail' factura.numero %}" 
+                                               class="btn btn-sm btn-outline-primary">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="{% url 'core:factura_edit' factura.numero %}" 
+                                               class="btn btn-sm btn-outline-secondary">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="8" class="text-center py-4">
+                                        <p class="text-muted mb-0">No hay facturas registradas</p>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
